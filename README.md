@@ -9,8 +9,8 @@ The Authentication flow for the application is:
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-GET   | -     | -     | - | -             | -  | -
-GET  | -    | -     | - | -             | - | -
+POST   | /auth/signup     | -     | - | User Signup           | userName, email, password | {token : token}
+POST   | /auth/login     | -     | - | User Login           | email, password | {token : token}
 
 
 ### Admin Endpoints
@@ -29,9 +29,10 @@ GET   | -     | -     | owner | -             | -  | -
 GET  | -    | -     | owner | -             | - | -
 
 
-### Client Endpoints
+### Customer Endpoints
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-GET   | -     | -     | client | -             | -  | -
-GET  | -    | -     | client | -             | - | -
+GET   | /user/profile     | YES    | - | Get own profile            | -  | {user}
+PUT   | /user/profile     | YES    | - | Update own profile            | PENDING | {message: "Profile updated!"}
+
