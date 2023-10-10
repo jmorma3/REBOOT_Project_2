@@ -13,7 +13,8 @@ Customer ("Customer"). Customer is the most limited rol, having access to produc
 ## Tables Diagram:
 ![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/5e90aa7e-acaf-4d52-aa73-262a7de26c58)
 
-### Authentication Endpoints
+
+## Authentication Endpoints
 
 The Authentication flow for the application is:
 
