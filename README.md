@@ -37,7 +37,7 @@ GET   | /user/:userId    | YES    | admin | Get one user           | - | {user}
 POST   | /user    | YES    | admin | Create one user           | userName, email, role, name, surname, phone, address, zipcode  | {user}
 PUT   | /user/profile    | YES    | - | Update user profile (owner and customer only update own profile)         | userName, email, name, surname, phone, address, zipcode | {message: "Profile updated!"}
 PUT   | /user/password    | YES    | - | Reset user password (owner and customer only reset own password)         | newPassword, repeatPassword | {message: "Password updated!"}
-PUT   | /user/:userId    | YES    | admin | Update one user           | userName, eamil, role, name, surname, phone, address, zipcode | {message: "User updated!"}
+PUT   | /user/:userId    | YES    | admin | Update one user           | userName, email, role, name, surname, phone, address, zipcode | {message: "User updated!"}
 DELETE   | /user/profile    | YES    | - | Delete user profile (owner and customer only delete own profile)         | - | {message: "Profile deleted!"}
 DELETE   | /user/:userId    | YES    | admin | Delete one user           | - | {message: "User deleted!"}
 
