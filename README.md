@@ -1,5 +1,17 @@
 # REBOOT_Poject_2
-API Rest Management of a Local Market
+This REST API is designed to manage a local market through a website, where customers, shop owners and main web admin can acces to different funtionalities related with products, suppliers,  purchases, sales, etc. 
+
+## Rols:
+There are 3 main rols:
+Webmaster ("Admin"). This is a full access rol. Admin can create, update and delete different shops, products and suppliers in the marketplace, access to contact information from every user and create, update and delete users. 
+Shop Owner ("Owner"). This one is a mid level access rol. Owner has access to his own shop, adding, updating and deleting new products and suppliers to its own shop. Also can access to sales to customers and purchases from suppliers. 
+Customer ("Customer"). Customer is the most limited rol, having access to products, its own contact information (being able to update and delete its own profile) and its buying history into the marketplace. 
+
+## Permissions:
+![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/6479f67d-8c4d-4cf9-82ee-894e9500d04f)
+
+## Tables Diagram:
+![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/5e90aa7e-acaf-4d52-aa73-262a7de26c58)
 
 ### Authentication Endpoints
 
