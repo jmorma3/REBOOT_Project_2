@@ -86,3 +86,27 @@ GET   | /shop/:shopId    | YES    | owner, admin | Get one shop (owner only gets
 POST   | /shop    | YES    | owner, admin | Create one shop (owner only creates own shop)         | name, category | {shop}
 PUT   | /shop/:shopId  | YES    | owner, admin | Update one shop (owner only updates own shop)         | name, category | {message: "Shop updated!"}
 DELETE   | /shop/:shopId    | YES    | owner, admin | Delete one shop (owner only deletes own shop)           | - | {message: "Shop deleted!"}
+
+
+### Purchase Endpoints 
+
+METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
+GET   | /user/:userId/purchase   | YES    | - | Get all purchases           | Query params | [{purchase}]
+GET   | /user/:userId/purchase/:purchaseId   | YES    | - | Get one purchase           | - | {purchase}
+POST   | /user/:userId/purchase    | YES    | - | Create one purchase           | payment_method, [{ product }]  | {purchase}
+PUT   | /user/:userId/purchase/:purchaseId    | YES    | admin | Update one purchase           | payment_method, [{ product }] | {message: "Purchase updated!"}
+DELETE   | /user/:userId/purchase/:purchaseId    | YES    | admin | Delete one purchase           | - | {message: "Purchase deleted!"}
+
+
+### Sale Endpoints 
+
+METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
+GET   | /user/:userId/sale   | YES    | owner, admin | Get all sales          | Query params | [{sale}]
+GET   | /user/:userId/sale/:saleId   | YES    | owner, admin | Get one sale           | - | {sale}
+POST   | /user/:userId/sale    | YES    | owner, admin | Create one sale           | payment_method, [{ product }]  | {sale}
+PUT   | /user/:userId/sale/:saleId    | YES    | admin | Update one sale           | payment_method, [{ product }] | {message: "Sale updated!"}
+DELETE   | /user/:userId/sale/:saleId    | YES    | admin | Delete one sale          | - | {message: "Sale deleted!"}
+
+
