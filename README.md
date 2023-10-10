@@ -1,4 +1,4 @@
-# REBOOT_Poject_2
+# REBOOT_Project_2
 This REST API is designed to manage a local market through a website, where customers, shop owners and main web admin can acces to different funtionalities related with products, suppliers,  purchases, sales, etc. 
 
 ## Roles:
