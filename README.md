@@ -71,8 +71,8 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
 GET   | /supplier    | YES    | owner, admin | Get all suppliers           | Query params | [{supplier}]
 GET   | /supplier/:supplierId    | YES    | owner, admin | Get one supplier           | - | {supplier}
-POST   | /supplier    | YES    | admin | Create one supplier           | name | {supplier}
-PUT   | /supplier/:supplierId  | YES    | admin | Update one supplier           | name | {message: "Supplier updated!"}
+POST   | /supplier    | YES    | admin | Create one supplier           | name, surname, phone, address, zipcode | {supplier}
+PUT   | /supplier/:supplierId  | YES    | admin | Update one supplier           | name, surname, phone, address, zipcodename | {message: "Supplier updated!"}
 DELETE   | /supplier/:supplierId    | YES    | admin | Delete one supplier           | - | {message: "Supplier deleted!"}
 
 
