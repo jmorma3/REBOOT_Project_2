@@ -13,7 +13,8 @@ This REST API is designed to manage a local market through a website, where cust
 
 ## Tables Diagram:
 
-![image](https://github.com/jmorma3/REBOOT_Project_2/assets/85761293/9f107e80-bb21-473c-bb52-6205344e5767)
+![image](https://github.com/jmorma3/REBOOT_Project_2/assets/122169852/941d494a-9e73-4ea1-8240-b9393130f9fc)
+
 
 ## Authentication Endpoints
 
