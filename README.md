@@ -7,7 +7,8 @@ This REST API is designed to manage a local market through a website, where cust
 - Customer ("Customer"). Customer is the most limited role, having access to products, its own contact information (being able to update and delete its own profile) and its buying history into the marketplace. 
 
 ## Permissions:
-![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/6479f67d-8c4d-4cf9-82ee-894e9500d04f)
+![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/8519f462-4bf6-4679-9127-38449ae2d316)
+
 
 ## Tables Diagram:
 ![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/d9b91d10-186b-4e54-b45a-7d7870381dc3)
