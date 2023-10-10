@@ -2,7 +2,6 @@
 This REST API is designed to manage a local market through a website, where customers, shop owners and main web admin can acces to different funtionalities related with products, suppliers,  purchases, sales, etc. 
 
 ## Roles:
-There are 3 main rols:
 - Webmaster ("Admin"). This is a full access role. Admin can create, update and delete different shops, products and suppliers in the marketplace, access to contact information from every user and create, update and delete users. 
 - Shop Owner ("Owner"). This one is a mid level access role. Owner has access to his own shop, adding, updating and deleting new products and suppliers to its own shop. Also can access to sales to customers and purchases from suppliers. 
 - Customer ("Customer"). Customer is the most limited role, having access to products, its own contact information (being able to update and delete its own profile) and its buying history into the marketplace. 
