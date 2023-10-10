@@ -93,9 +93,9 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
 GET   | /purchase   | YES    | admin | Get all purchases           | Query params | [{purchase}]
 GET   | /purchase/profile   | YES    | - | Get own purchases           | Query params | [{purchase}]
-GET   | /purchase/:purchaseId   | YES    | - | Get one purchase           | - | {purchase}
-POST   | /purchase    | YES    | - | Create one purchase           | payment_method, [{ ref: , productId: product.id, productQuantity: quantity }]  | {purchase}
-PUT   | /purchase/:purchaseId    | YES    | admin | Update one purchase           | payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Purchase updated!"}
+GET   | /purchase/:purchaseId   | YES    | admin | Get one purchase           | - | {purchase}
+POST   | /purchase    | YES    | - | Create one purchase           | purchase_num, payment_method, [{ productId: product.id, productQuantity: quantity }]  | {purchase}
+PUT   | /purchase/:purchaseId    | YES    | admin | Update one purchase           | purchase_num, payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Purchase updated!"}
 DELETE   | /purchase/:purchaseId    | YES    | admin | Delete one purchase           | - | {message: "Purchase deleted!"}
 
 
@@ -105,9 +105,9 @@ METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAM
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
 GET   | /sale   | YES    | admin | Get all sales          | Query params | [{sale}]
 GET   | /sale/profile   | YES    | - | Get own sales           | Query params | [{sale}]
-GET   | /sale/:saleId   | YES    | owner, admin | Get one sale           | - | {sale}
-POST   | /sale    | YES    | owner, admin | Create one sale           | payment_method, [{ productId: product.id, productQuantity: quantity }]  | {sale}
-PUT   | /sale/:saleId    | YES    | admin | Update one sale           | payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Sale updated!"}
+GET   | /sale/:saleId   | YES    | admin | Get one sale           | - | {sale}
+POST   | /sale    | YES    | owner, admin | Create one sale           | sale_num, payment_method, [{ productId: product.id, productQuantity: quantity }]  | {sale}
+PUT   | /sale/:saleId    | YES    | admin | Update one sale           | sale_num, payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Sale updated!"}
 DELETE   | /sale/:saleId    | YES    | admin | Delete one sale          | - | {message: "Sale deleted!"}
 
 
