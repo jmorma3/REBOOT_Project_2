@@ -12,8 +12,7 @@ This REST API is designed to manage a local market through a website, where cust
 
 ## Tables Diagram:
 
-![image](https://github.com/jmorma3/REBOOT_Project_2/assets/85761293/0ce88921-825d-40a4-b637-f9888c27f805)
-
+![image](https://github.com/jmorma3/REBOOT_Project_2/assets/85761293/9f107e80-bb21-473c-bb52-6205344e5767)
 
 ## Authentication Endpoints
 
@@ -92,21 +91,23 @@ DELETE   | /shop/:shopId    | YES    | owner, admin | Delete one shop (owner onl
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-GET   | /user/:userId/purchase   | YES    | - | Get all purchases           | Query params | [{purchase}]
-GET   | /user/:userId/purchase/:purchaseId   | YES    | - | Get one purchase           | - | {purchase}
-POST   | /user/:userId/purchase    | YES    | - | Create one purchase           | payment_method, [{ product }]  | {purchase}
-PUT   | /user/:userId/purchase/:purchaseId    | YES    | admin | Update one purchase           | payment_method, [{ product }] | {message: "Purchase updated!"}
-DELETE   | /user/:userId/purchase/:purchaseId    | YES    | admin | Delete one purchase           | - | {message: "Purchase deleted!"}
+GET   | /purchase   | YES    | admin | Get all purchases           | Query params | [{purchase}]
+GET   | /purchase/profile   | YES    | - | Get own purchases           | Query params | [{purchase}]
+GET   | /purchase/:purchaseId   | YES    | - | Get one purchase           | - | {purchase}
+POST   | /purchase    | YES    | - | Create one purchase           | payment_method, [{ ref: , productId: product.id, productQuantity: quantity }]  | {purchase}
+PUT   | /purchase/:purchaseId    | YES    | admin | Update one purchase           | payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Purchase updated!"}
+DELETE   | /purchase/:purchaseId    | YES    | admin | Delete one purchase           | - | {message: "Purchase deleted!"}
 
 
 ### Sale Endpoints 
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
 -------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
-GET   | /user/:userId/sale   | YES    | owner, admin | Get all sales          | Query params | [{sale}]
-GET   | /user/:userId/sale/:saleId   | YES    | owner, admin | Get one sale           | - | {sale}
-POST   | /user/:userId/sale    | YES    | owner, admin | Create one sale           | payment_method, [{ product }]  | {sale}
-PUT   | /user/:userId/sale/:saleId    | YES    | admin | Update one sale           | payment_method, [{ product }] | {message: "Sale updated!"}
-DELETE   | /user/:userId/sale/:saleId    | YES    | admin | Delete one sale          | - | {message: "Sale deleted!"}
+GET   | /sale   | YES    | admin | Get all sales          | Query params | [{sale}]
+GET   | /sale/profile   | YES    | - | Get own sales           | Query params | [{sale}]
+GET   | /sale/:saleId   | YES    | owner, admin | Get one sale           | - | {sale}
+POST   | /sale    | YES    | owner, admin | Create one sale           | payment_method, [{ productId: product.id, productQuantity: quantity }]  | {sale}
+PUT   | /sale/:saleId    | YES    | admin | Update one sale           | payment_method, [{ productId: product.id, productQuantity: quantity }] | {message: "Sale updated!"}
+DELETE   | /sale/:saleId    | YES    | admin | Delete one sale          | - | {message: "Sale deleted!"}
 
 
