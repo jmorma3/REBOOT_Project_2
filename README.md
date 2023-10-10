@@ -11,7 +11,8 @@ Customer ("Customer"). Customer is the most limited rol, having access to produc
 ![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/6479f67d-8c4d-4cf9-82ee-894e9500d04f)
 
 ## Tables Diagram:
-![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/5e90aa7e-acaf-4d52-aa73-262a7de26c58)
+![image](https://github.com/jmorma3/REBOOT_Poject_2/assets/122169852/d9b91d10-186b-4e54-b45a-7d7870381dc3)
+
 
 
 ## Authentication Endpoints
