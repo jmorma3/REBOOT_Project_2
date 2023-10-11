@@ -31,6 +31,8 @@ const addRelationshipsToModels = () => {
         Product.belongsToMany(User, {through: Purchase})
         Shop.belongsToMany(Product, {through: Purchase})
         Product.belongsToMany(Shop,{through: Purchase})
+        Purchase.belongsTo(User)
+
 
         User.belongsToMany(Supplier, {through: Sale})
         Supplier.belongsToMany(User, {through: Sale})
@@ -38,6 +40,7 @@ const addRelationshipsToModels = () => {
         Product.belongsToMany(User, {through: Sale})
         Supplier.belongsToMany(Product, {through: Sale})
         Product.belongsToMany(Supplier,{through: Sale})
+        Sale.belongsTo(User)
 
         console.log('Relationships added to all models')
     } catch (error) {
