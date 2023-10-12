@@ -23,14 +23,14 @@ const getOneCategory = async (req, res) => {
 
 const createCategory = async (req, res) => {
     try {
-        const existingCategory = await Category.findOne({ where: req.body.name })
+        const existingCategory = await Category.findOne({ where: req.body.categoryName })
 
         if(existingCategory){
             return res.status('409').send('Category already exists')
         }
 
         const category = await Category.create({
-            name: req.body.name
+            categoryName: req.body.categoryName
         })
 
         return res.status(200).json({ message: 'Category created', category: category })

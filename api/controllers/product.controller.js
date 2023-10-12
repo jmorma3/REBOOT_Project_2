@@ -1,5 +1,5 @@
 const Product = require("../models/product.model")
-const Category = require("../models/product.model")
+const Category = require("../models/category.model")
 
 const getAllProducts = async (req, res) => {
     try {
@@ -41,7 +41,7 @@ const createProduct = async (req, res) => {
             categoryDescription: req.body.categoryDescription
         })
 
-        await product.addCategory(category)
+        await category.addProduct(product)
 
         return res.status(200).json({ message: 'Product created', product: product, category: category })
     } catch (error) {

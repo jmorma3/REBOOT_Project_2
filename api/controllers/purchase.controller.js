@@ -32,9 +32,9 @@ const createPurchase = async (req, res) => {
     try {
         const purchase = await Purchase.create({
             purchase_num: req.body.purchase_num,
-            payment_method: req.body.payment_method,
-            quantity: req.body.quantity,
-            total: req.body.total
+            purchase_payment_method: req.body.payment_method,
+            purchaseProductQuantity: req.body.purchaseProductQuantity,
+            purchaseTotal: req.body.total
         })
         return res.status(200).json({ message: 'Purchase created', purchase: purchase })
     } catch (error) {

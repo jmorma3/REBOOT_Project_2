@@ -1,4 +1,5 @@
 const Supplier = require('../models/supplier.model')
+const Contact = require('../models/contactInfo.model')
 
 const getAllSuppliers = async (req, res) => {
     try {
@@ -23,17 +24,21 @@ const getOneSupplier = async (req, res) => {
 
 const createSupplier = async (req, res) => {
     try {
-        const existingSupplier = await Supplier.findOne({ where: req.body.name })
-
-        if(existingSupplier){
-            return res.status('409').send('Supplier already exists')
-        }
-
         const supplier = await Supplier.create({
-            name: req.body.name
+            supplierName: req.body.supplierName
         })
 
-        return res.status(200).json({ message: 'Supplier created', supplier: supplier })
+        const contact = await Contact.create({
+            name: req.body.name,
+            surname: req.body.surname,
+            address: req.body.address,
+            phone: req.body.phone,
+            zipCode: req.body.zipCode
+        })
+
+        await supplier.setContactInfo(contact)
+
+        return res.status(200).json({ message: 'Supplier created', supplier: supplier, contact: contact })
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }

@@ -4,11 +4,11 @@ const { connection } = require("../../database")
 const Shop = connection.define(
     "shop",
     {
-        name: {
+        shopName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        category:{
+        shopCategory:{
             type: DataTypes.ENUM("category1", "category2", "category3"),
             defaultValue: "category1", 
             allowNull: false, 

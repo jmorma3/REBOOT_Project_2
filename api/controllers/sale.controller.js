@@ -31,9 +31,9 @@ const createSale = async (req, res) => {
 
         const sale = await Sale.create({
             sale_num: req.body.sale_num,
-            payment_method: req.body.payment_method,
-            quantity: req.body.quantity,
-            total: req.body.total
+            sale_payment_method: req.body.payment_method,
+            saleProductQuantity: req.body.saleProductQuantity,
+            saleTotal: req.body.total
         })
 
         return res.status(200).json({ message: 'Sale created', sale: sale })

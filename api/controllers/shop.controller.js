@@ -1,4 +1,5 @@
 const Shop = require("../models/shop.model")
+const User = require("../models/user.model")
 
 const getAllShops = async (req, res) => {
     try {
@@ -31,9 +32,31 @@ const getOneShop = async (req, res) => {
 const createShop = async (req, res) => {
     try {
         const shop = await Shop.create({
-            name: req.body.name,
-            category: req.body.category
+            shopName: req.body.shopName,
+            shopCategory: req.body.shopCategory
         })
+
+        return res.status(200).json({ message: 'Shop created', shop: shop })
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
+const createShopToUser = async (req, res) => {
+    try {
+        const user = await User.findByPk(req.params.userId)
+
+        const shop = await Shop.create({
+            shopName: req.body.shopName,
+            shopCategory: req.body.shopCategory
+        })
+
+        if(user.role === 'owner'){
+            await user.addShop(shop)
+        } else {
+            return res.status(404).send('User not owner')
+        }
+
         return res.status(200).json({ message: 'Shop created', shop: shop })
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -79,6 +102,7 @@ module.exports = {
     getAllShops,
     getOneShop,
     createShop,
+    createShopToUser,
     updateShop,
     deleteShop
 }

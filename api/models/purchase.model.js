@@ -12,18 +12,18 @@ const Purchase = connection.define(
                 len: [10] // Add validate regex later
             }
         },
-        payment_method: {
+        purchase_payment_method: {
             type: DataTypes.ENUM('cash', 'credit_card', 'paypal', 'transfer'),
             allowNull: false
         },
-        quantity: {
+        purchaseProductQuantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 min: 1
             }
         },
-        total: {
+        purchaseTotal: {
             type: DataTypes.FLOAT,
             allowNull: false,
             validate:{

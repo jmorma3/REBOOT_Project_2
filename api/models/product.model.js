@@ -13,12 +13,8 @@ const Product = connection.define(
             allowNull: false
         },
         price: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {
-                isFloat: true,
-                len: [4, Infinity]
-            }
+            type: DataTypes.FLOAT,
+            allowNull: false
         }
     },
     {

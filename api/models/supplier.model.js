@@ -4,7 +4,7 @@ const { connection } = require("../../database")
 const Supplier = connection.define(
     'supplier',
     {
-        name: {
+        supplierName: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
