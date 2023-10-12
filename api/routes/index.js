@@ -1,3 +1,20 @@
 const router = require('express').Router()
+const userRouter = require('./user.route')
+const productRouter = require('./product.route')
+const categoryRouter = require('./category.route')
+const supplierRouter = require('./supplier.route')
+const shopRouter = require('./shop.route')
+const contactInfoRouter = require('./contactInfo.route')
+const saleRouter = require('./sale.route')
+const purchaseRouter = require('./purchase.route')
+
+router.use('/user', userRouter)
+router.use('/product', productRouter)
+router.use('/category', categoryRouter)
+router.use('/supplier', supplierRouter)
+router.use('/shop', shopRouter)
+router.use('/contactInfo', contactInfoRouter)
+router.use('/sale', saleRouter)
+router.use('/purchase', purchaseRouter)
 
 module.exports = router
