@@ -25,22 +25,19 @@ const addRelationshipsToModels = () => {
         Product.belongsTo(Category)
 
         //Many to Many:
-        User.belongsToMany(Shop, {through: Purchase})
-        Shop.belongsToMany(User, {through: Purchase})
-        User.belongsToMany(Product, {through: Purchase})
-        Product.belongsToMany(User, {through: Purchase})
-        Shop.belongsToMany(Product, {through: Purchase})
-        Product.belongsToMany(Shop,{through: Purchase})
-        Purchase.belongsTo(User)
+        User.belongsToMany(Product, { through: Sale, as: 'userSale' })
+        Product.belongsToMany(User, { through: Sale, as: 'productUserSale' })
+        Shop.belongsToMany(Product, { through: Sale, as: 'shopSale' })
+        Product.belongsToMany(Shop, { through: Sale, as: 'productShopSale' })
 
+        Sale.belongsTo(User, { foreignKey: 'userId' })
 
-        User.belongsToMany(Supplier, {through: Sale})
-        Supplier.belongsToMany(User, {through: Sale})
-        User.belongsToMany(Product, {through: Sale})
-        Product.belongsToMany(User, {through: Sale})
-        Supplier.belongsToMany(Product, {through: Sale})
-        Product.belongsToMany(Supplier,{through: Sale})
-        Sale.belongsTo(User)
+        Shop.belongsToMany(Product, { through: Purchase, as: 'shopPurchase' })
+        Product.belongsToMany(Shop, { through: Purchase, as: 'productShopPurchase' })
+        Supplier.belongsToMany(Product, { through: Purchase, as: 'supplierPurchase' })
+        Product.belongsToMany(Supplier, { through: Purchase, as: 'productSupplierPurchase' })
+
+        Purchase.belongsTo(Shop, { foreignKey: 'shopId' })
 
         console.log('Relationships added to all models')
     } catch (error) {
