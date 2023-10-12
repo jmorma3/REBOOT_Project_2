@@ -4,11 +4,11 @@ const { connection } = require("../../database")
 const Category = connection.define(
     "category",
     {
-        name: {
+        categoryName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
+        categoryDescription: {
             type: DataTypes.STRING,
             allowNull: false
         }

@@ -4,16 +4,16 @@ const { connection } = require('../../database')
 const Product = connection.define(
     'product', 
     {
-        name: {
+        productName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
+        productDescription: {
             type: DataTypes.STRING,
             allowNull: false
         },
         price: {
-            type: DataTypes.FLOAT,
+            type: DataTypes.DECIMAL,
             allowNull: false,
             validate: {
                 isFloat: true,

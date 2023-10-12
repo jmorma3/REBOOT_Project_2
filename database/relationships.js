@@ -11,11 +11,11 @@ const Category = require("../api/models/category.model")
 const addRelationshipsToModels = () => {
     try {
         //One to One:
-        User.hasOne(ContactInfo)
-        ContactInfo.belongsTo(User)
+        ContactInfo.hasOne(User)
+        User.belongsTo(ContactInfo)
 
-        Supplier.hasOne(ContactInfo)
-        ContactInfo.belongsTo(Supplier)
+        ContactInfo.hasOne(Supplier)
+        Supplier.belongsTo(ContactInfo)
 
         //One to Many:
         User.hasMany(Shop)
