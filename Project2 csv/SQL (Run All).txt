@@ -1,0 +1,141 @@
+-- Inserción de datos en la tabla "categories"
+INSERT INTO categories (id, categoryName, categoryDescription)
+VALUES
+(1, 'Clothing', 'Fashionable clothing for all seasons'),
+(2, 'Electronics', 'Electronic gadgets and accessories'),
+(3, 'Fresh Foods', 'High-quality fresh groceries'),
+(4, 'Appliances', 'Home appliances and kitchenware'),
+(5, 'Sports and Outdoor', 'Sports equipment and outdoor gear'),
+(6, 'Beauty and Personal Care', 'Beauty and personal care products'),
+(7, 'Toys and Games', 'Toys, games, and entertainment'),
+(8, 'Automotive', 'Automotive parts and accessories'),
+(9, 'Books and Magazines', 'A wide range of books and magazines'),
+(10, 'Furniture and Home Decor', 'Home furniture and decor items');
+
+-- Inserción de datos en la tabla "contactInfo"
+INSERT INTO contactInfo (id, name, surname, phone, address, zipCode)
+VALUES
+(1, 'John', 'Smith', '123456789', '123 Main Street, 101', '12345'),
+(2, 'Jane', 'Doe', '987654321', '456 Elm Avenue, 202', '54321'),
+(3, 'Michael', 'Johnson', '456789123', '789 Oak Drive, 303', '67890'),
+(4, 'Emily', 'Davis', '789123456', '234 Pine Road, 404', '45678'),
+(5, 'William', 'Anderson', '234567890', '567 Cedar Lane, 505', '23456'),
+(6, 'Sarah', 'Wilson', '654321789', '890 Birch Street, 606', '76543'),
+(7, 'James', 'Taylor', '345678912', '123 Willow Avenue, 707', '32123'),
+(8, 'Olivia', 'Martin', '567890123', '456 Redwood Drive, 808', '87654'),
+(9, 'Robert', 'Brown', '432109876', '789 Maple Lane, 909', '43210'),
+(10, 'Sophia', 'Moore', '876543210', '234 Spruce Road, 1010', '56789'),
+(11, 'David', 'Garcia', '210987654', '567 Pine Street, 1111', '21098'),
+(12, 'Emma', 'Lopez', '543210987', '890 Oak Avenue, 1212', '54321'),
+(13, 'Daniel', 'Harris', '109876543', '123 Birch Drive, 1313', '98765'),
+(14, 'Ava', 'Clark', '321098765', '456 Elm Lane, 1414', '32109'),
+(15, 'Joseph', 'Lewis', '765432109', '789 Cedar Road, 1515', '65432'),
+(16, 'Mia', 'Young', '234567890', '234 Willow Drive, 1616', '23456'),
+(17, 'William', 'Hall', '876543210', '567 Redwood Street, 1717', '87654'),
+(18, 'Sophia', 'Adams', '345678912', '890 Cedar Avenue, 1818', '34567'),
+(19, 'Matthew', 'Scott', '432109876', '123 Oak Lane, 1919', '43210'),
+(20, 'Olivia', 'Baker', '654321789', '456 Maple Road, 2020', '65432');
+
+
+-- Inserción de datos en la tabla "products"
+INSERT INTO products (id, productName, productDescription, price)
+VALUES
+(1, 'Trendy Jeans', 'Stylish denim jeans for all occasions', 39.99),
+(2, 'Smartphone X', 'State-of-the-art smartphone with advanced features', 699.99),
+(3, 'Organic Apples', 'Fresh and organic apples from local farms', 2.99),
+(4, 'Coffee Maker', 'High-quality coffee maker for your daily brew', 49.99),
+(5, 'Soccer Ball', 'Durable soccer ball for sports enthusiasts', 19.99),
+(6, 'Luxury Perfume', 'Elegant and luxurious fragrance for women', 89.99),
+(7, 'Board Game Bundle', 'Set of classic board games for family fun', 29.99),
+(8, 'Car Wax Kit', 'Complete car wax kit for a shiny finish', 24.99),
+(9, 'Mystery Novel', 'Bestselling mystery novel for avid readers', 12.99),
+(10, 'Antique Desk', 'Vintage wooden desk for a classic look', 199.99),
+(11, 'Ribeye Steak', 'Prime ribeye steak for a gourmet dinner', 15.99),
+(12, 'Fresh Roses', 'Beautiful bouquet of fresh roses for any occasion', 29.99),
+(13, 'Fresh Salmon', 'Premium salmon fillet for a delicious meal', 9.99),
+(14, 'Artisan Baguette', 'Crusty artisan baguette for your sandwiches', 3.99),
+(15, 'Hammer Drill', 'Powerful hammer drill for home improvement', 79.99),
+(16, 'Handcrafted Jewelry', 'Elegant handcrafted jewelry for special occasions', 49.99),
+(17, 'Children´s Toys', 'Assortment of fun and educational toys for kids', 19.99),
+(18, 'Car Maintenance Kit', 'Essential car maintenance tools and supplies', 49.99),
+(19, 'Science Fiction Book', 'Captivating science fiction book for sci-fi fans', 14.99),
+(20, 'Vintage Armchair', 'Classic vintage armchair for your home decor', 149.99),
+(21, 'Pork Chops', 'Delicious and tender pork chops for cooking', 8.99),
+(22, 'Sunflowers Bouquet', 'Bright and cheerful sunflowers bouquet', 19.99),
+(23, 'Fresh Shrimp', 'Fresh and succulent shrimp for your dishes', 12.99),
+(24, 'Artisan Sourdough', 'Artisan sourdough bread with a rustic taste', 4.99),
+(25, 'Cordless Drill', 'Cordless drill with versatility and power', 59.99),
+(26, 'Gemstone Necklace', 'Exquisite gemstone necklace for a touch of luxury', 79.99),
+(27, 'Educational Puzzles', 'Educational puzzles for kids´ learning and fun', 14.99),
+(28, 'Car Detailing Kit', 'Complete car detailing kit for a polished look', 34.99),
+(29, 'Historical Novel', 'Engaging historical novel for history buffs', 11.99),
+(30, 'Mid-Century Sofa', 'Stylish mid-century modern sofa for your living room', 299.99);
+
+-- Inserción de datos en la tabla "shops"
+INSERT INTO shops (id, shopName, shopCategory)
+VALUES
+(1, 'Fashion Haven', 'Clothing'),
+(2, 'Tech Universe', 'Electronics'),
+(3, 'Local Market Grocers', 'Fresh Foods'),
+(4, 'Home Essentials Store', 'Appliances'),
+(5, 'Sports Emporium', 'Sports and Outdoor'),
+(6, 'Beauty Boutique', 'Beauty and Personal Care'),
+(7, 'Toylandia', 'Toys and Games'),
+(8, 'Auto Parts Superstore', 'Automotive'),
+(9, 'Book Nook', 'Books and Magazines'),
+(10, 'Home Decor Elegance', 'Furniture and Home Decor');
+
+
+-- Inserción de datos en la tabla "suppliers"
+INSERT INTO suppliers (id, supplierName)
+VALUES
+(1, 'GlobalTech Suppliers'),
+(2, 'Nature´s Bounty Produce'),
+(3, 'HomeTech Distributors'),
+(4, 'SportsGear Producers'),
+(5, 'Beauty Essentials Inc.'),
+(6, 'Toyland Suppliers'),
+(7, 'Auto Parts Warehouse'),
+(8, 'Book Distributors Ltd.'),
+(9, 'HomeDecor Creations'),
+(10, 'Fashion Trends Wholesale'),
+(11, 'Meat Master Suppliers'),
+(12, 'Floral Creations Wholesale'),
+(13, 'Seafood Suppliers Inc.'),
+(14, 'Bakery Essentials Distributors'),
+(15, 'Hardware Tools Wholesale');
+
+
+-- Inserción de datos en la tabla "users"
+INSERT INTO users (id, username, email, password, role)
+VALUES
+(1, 'ADMIN', 'admin@email.com', 'password1', 'admin'),
+(2, 'lucia19', 'luciamartinez@email.com', 'password2', 'owner'),
+(3, 'carlos78', 'carlosfernandez@email.com', 'password3', 'owner'),
+(4, 'mariaperez', 'mariaperez@email.com', 'password4', 'owner'),
+(5, 'davidm_45', 'davidmartinez@email.com', 'password5', 'owner'),
+(6, 'anag_22', 'anagomez@email.com', 'password6', 'owner'),
+(7, 'maria_89', 'mariagarcia@email.com', 'password7', 'owner'),
+(8, 'pedro21', 'pedromartin@email.com', 'password8', 'owner'),
+(9, 'andres_s', 'andresrodriguez@email.com', 'password9', 'owner'),
+(10, 'carmen12', 'carmenfernandez@email.com', 'password10', 'owner'),
+(11, 'sergio.g', 'sergiogomez@email.com', 'password11', 'owner'),
+(12, 'susanam', 'susanamartinez@email.com', 'password12', 'owner'),
+(13, 'raquelc', 'raquel@email.com', 'password13', 'customer'),
+(14, 'daniel_r', 'daniel@email.com', 'password14', 'customer'),
+(15, 'elena_s', 'elena@email.com', 'password15', 'customer'),
+(16, 'juan23', 'juan@email.com', 'password16', 'customer'),
+(17, 'alicia_44', 'alicia@email.com', 'password17', 'customer'),
+(18, 'josefina_f', 'josefina@email.com', 'password18', 'customer'),
+(19, 'lucas.p', 'lucas@email.com', 'password19', 'customer'),
+(20, 'ana_b', 'ana_barreto@email.com', 'password20', 'customer'),
+(21, 'carla34', 'carla@email.com', 'password21', 'customer'),
+(22, 'martin88', 'martin@email.com', 'password22', 'customer'),
+(23, 'rocio.m', 'rocio@email.com', 'password23', 'customer'),
+(24, 'luis_a', 'luis@email.com', 'password24', 'customer'),
+(25, 'ana_maria_7', 'ana@email.com', 'password25', 'customer'),
+(26, 'carlos33', 'carlos@email.com', 'password26', 'customer'),
+(27, 'ines_j', 'ines@email.com', 'password27', 'customer'),
+(28, 'manuel67', 'manuel@email.com', 'password28', 'customer'),
+(29, 'teresa_s', 'teresa@email.com', 'password29', 'customer'),
+(30, 'javi_33', 'javierrodriguez@email.com', 'password30', 'owner');
