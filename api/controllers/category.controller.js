@@ -2,7 +2,7 @@ const Category = require('../models/category.model')
 
 const getAllCategories = async (req, res) => {
     try {
-        const categories = Category.findAll(req.query)
+        const categories = await Category.findAll(req.query)
         return res.status(200).json(categories)
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -11,7 +11,7 @@ const getAllCategories = async (req, res) => {
 
 const getOneCategory = async (req, res) => {
     try {
-        const category = Category.findByPk(req.params.categoryId)
+        const category = await Category.findByPk(req.params.categoryId)
         if (!category) {
             return res.status(404).send('Category not found')
         }

@@ -10,11 +10,11 @@ const User = connection.define(
             unique: true
         }, 
         email:{
-            type: DataTypes.STRING, 
-            allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: false, 
             unique: true,
-            validate:{
-                isEmail: true
+            validate: {
+                isEmail: true //Pending
             }
         },
         password:{

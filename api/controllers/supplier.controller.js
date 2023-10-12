@@ -2,7 +2,7 @@ const Supplier = require('../models/supplier.model')
 
 const getAllSuppliers = async (req, res) => {
     try {
-        const suppliers = Supplier.findAll(req.query)
+        const suppliers = await Supplier.findAll(req.query)
         return res.status(200).json(suppliers)
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -11,7 +11,7 @@ const getAllSuppliers = async (req, res) => {
 
 const getOneSupplier = async (req, res) => {
     try {
-        const supplier = Supplier.findByPk(req.params.supplierId)
+        const supplier = await Supplier.findByPk(req.params.supplierId)
         if (!supplier) {
             return res.status(404).send('Supplier not found')
         }

@@ -2,7 +2,7 @@ const Sale = require('../models/sale.model')
 
 const getAllSales = async (req, res) => {
     try {
-        const sales = Sale.findAll(req.query)
+        const sales = await Sale.findAll(req.query)
         return res.status(200).json(sales)
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -11,7 +11,7 @@ const getAllSales = async (req, res) => {
 
 const getOneSale = async (req, res) => {
     try {
-        const sale = Sale.findOne(req.params.saleNum)
+        const sale = await Sale.findOne(req.params.saleNum)
         if (!sale) {
             return res.status(404).send('Sale not found')
         }

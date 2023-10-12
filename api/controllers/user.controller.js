@@ -3,7 +3,7 @@ const Contact = require('../models/contactInfo.model')
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = User.findAll(req.query)
+        const users = await User.findAll(req.query)
         return res.status(200).json(users)
     } catch (error) {
         return res.status(500).json({ error: error.message })
@@ -12,7 +12,7 @@ const getAllUsers = async (req, res) => {
 
 const getOneUser = async (req, res) => {
     try {
-        const user = User.findByPk(req.params.userId)
+        const user = await User.findByPk(req.params.userId)
         if (!user) {
             return res.status(404).send('User not found')
         }
@@ -24,11 +24,11 @@ const getOneUser = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
-        const existingUser = await User.findOne({ where: req.body.email })
+/*         const existingUser = await User.findOne({ where: req.body.email })
 
         if(existingUser){
             return res.status('409').send('User already exists')
-        }
+        } */
 
         const user = await User.create({
             email: req.body.email,
@@ -42,12 +42,12 @@ const createUser = async (req, res) => {
             surname: req.body.surname,
             address: req.body.address,
             phone: req.body.phone,
-            zipcode: req.body.zipcode
+            zipCode: req.body.zipCode
         })
 
-        await user.setContact(contact)
+        await user.setContactInfo(contact)
 
-        return res.status(200).json({ message: 'User created', user: user })
+        return res.status(200).json({ message: 'User created', user: user, contact: contact })
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }

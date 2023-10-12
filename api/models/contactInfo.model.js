@@ -15,10 +15,7 @@ const ContactInfo = connection.define(
         phone:{
             type: DataTypes.INTEGER, 
             allowNull: false, 
-            unique: true, 
-            validate:{
-                len: [9]  //Ojo, posible error
-            }
+            unique: true
         }, 
         address:{
             type: DataTypes.STRING,
