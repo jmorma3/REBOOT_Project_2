@@ -1,5 +1,5 @@
 const Category = require('../models/category.model')
-
+//Hola
 const getAllCategories = async (req, res) => {
     try {
         const categories = await Category.findAll(req.query)
