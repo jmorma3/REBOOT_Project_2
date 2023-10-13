@@ -3,10 +3,10 @@ const User = require("../api/models/user.model")
 require("dotenv").config()
 
 const checkAuth = (req, res, next)=>{
-    if (req.headers.authorization){
+    if (!req.headers.authorization){
         return res.status(404).send("Token not found")
     }
-    jwt.verify(req.headers.authorization, procces.env.SECRET, async(error, payload)=>{
+    jwt.verify(req.headers.authorization, process.env.SECRET, async (error, payload)=>{
         if(error){
             return res.status(401).send("Token not valid!")
         }
@@ -24,15 +24,15 @@ const checkAuth = (req, res, next)=>{
 }
 
 const checkAdmin = (req,res, next)=>{
-    if(!res.locals.user.role === "admin"){
+    if(res.locals.user.role !== "admin"){
         return res.status(401).json("Access not allowed")
     }else{
         next()
     }
 }
 
-const checkOwner = (req,res, next)=>{
-    if(!res.locals.user.role === "owner" && !res.locals.user.role === "admin"){
+const checkOwner = (req,res, next)=>{ 
+    if(res.locals.user.role !== "owner" && res.locals.user.role !== "admin"){
         return res.status(401).json("Access not allowed")
     }else{
         next()

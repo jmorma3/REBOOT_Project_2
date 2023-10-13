@@ -14,8 +14,7 @@ const ContactInfo = connection.define(
         }, 
         phone:{
             type: DataTypes.INTEGER, 
-            allowNull: false, 
-            unique: true
+            allowNull: false
         }, 
         address:{
             type: DataTypes.STRING,
