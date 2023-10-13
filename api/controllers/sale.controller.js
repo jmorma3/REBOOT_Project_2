@@ -23,12 +23,6 @@ const getOneSale = async (req, res) => {
 
 const createSale = async (req, res) => {
     try {
-        const existingSale = await Sale.findOne({ where: req.body.sale_num })
-
-        if(existingSale){
-            return res.status('409').send('Sale already exists')
-        }
-
         const sale = await Sale.create({
             sale_num: req.body.sale_num,
             sale_payment_method: req.body.payment_method,
