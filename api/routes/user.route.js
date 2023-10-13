@@ -8,12 +8,17 @@ const {
     deleteUser 
 } = require('../controllers/user.controller')
 
+const { checkAdmin } = require("../../middlewares")
 
 router
-    .get('/', getAllUsers)
-    .get('/:userId', getOneUser)
-    .post('/', createUser)
-    .put('/:userId', updateUser)
-    .delete('/:userId', deleteUser)
+    .get('/', checkAdmin, getAllUsers)
+    .get('/:userId', checkAdmin, getOneUser)
+    //Crear ruta para getProfile
+    .post('/', checkAdmin, createUser)
+    .put('/:userId', checkAdmin, updateUser)
+    //Crear ruta para updateProfile
+    //Crear ruta para updatePassword
+    .delete('/:userId', checkAdmin, deleteUser)
+    //Crear ruta para deleteProfile
 
 module.exports = router

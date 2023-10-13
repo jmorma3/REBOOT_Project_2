@@ -2,11 +2,12 @@ const router = require('express').Router()
 
 const { getAllPurchases, getOnePurchase, createPurchase, updatePurchase, deletePurchase } = require('../controllers/purchase.controller')
 
+const { checkOwner, checkAdmin } = require("../../middlewares")
 
-router.get('/', getAllPurchases)
-router.get('/:purchaseNum', getOnePurchase)
-router.post('/', createPurchase)
-router.put('/:purchaseNum', updatePurchase)
-router.delete('/:purchaseNum', deletePurchase)
+router.get('/', checkAdmin, getAllPurchases)
+router.get('/:purchaseNum', checkOwner, getOnePurchase)
+router.post('/', checkOwner, createPurchase)
+router.put('/:purchaseNum', checkAdmin, updatePurchase)
+router.delete('/:purchaseNum', checkAdmin, deletePurchase)
 
 module.exports = router

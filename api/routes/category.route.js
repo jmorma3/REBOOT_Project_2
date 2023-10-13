@@ -8,12 +8,13 @@ const {
     deleteCategory 
 } = require('../controllers/category.controller')
 
+const { checkOwner } = require("../../middlewares")
 
 router
     .get('/', getAllCategories)
     .get('/:categoryId', getOneCategory)
-    .post('/', createCategory)
-    .put('/:categoryId', updateCategory)
-    .delete('/:categoryId', deleteCategory)
+    .post('/', checkOwner, createCategory)
+    .put('/:categoryId', checkOwner, updateCategory)
+    .delete('/:categoryId', checkOwner, deleteCategory)
 
 module.exports = router

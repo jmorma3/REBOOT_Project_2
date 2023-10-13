@@ -8,12 +8,13 @@ const {
     deleteSupplier 
 } = require('../controllers/supplier.controller')
 
+const { checkAdmin, checkOwner } = require("../../middlewares")
 
 router
-    .get('/', getAllSuppliers)
-    .get('/:supplierId', getOneSupplier)
-    .post('/', createSupplier)
-    .put('/:supplierId', updateSupplier)
-    .delete('/:supplierId', deleteSupplier)
+    .get('/', checkOwner, getAllSuppliers)
+    .get('/:supplierId', checkOwner,  getOneSupplier)
+    .post('/', checkAdmin, createSupplier)
+    .put('/:supplierId', checkAdmin, updateSupplier)
+    .delete('/:supplierId', checkAdmin, deleteSupplier)
 
 module.exports = router

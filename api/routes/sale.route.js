@@ -8,12 +8,13 @@ const {
     deleteSale 
 } = require('../controllers/sale.controller')
 
+const { checkAdmin } = require("../../middlewares")
 
 router
-    .get('/', getAllSales)
+    .get('/', checkAdmin, getAllSales)
     .get('/:saleNum', getOneSale)
     .post('/', createSale)
-    .put('/:saleNum', updateSale)
-    .delete('/:saleNum', deleteSale)
+    .put('/:saleNum', checkAdmin,  updateSale)
+    .delete('/:saleNum', checkAdmin, deleteSale)
 
 module.exports = router
