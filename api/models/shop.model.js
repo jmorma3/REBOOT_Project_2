@@ -9,8 +9,8 @@ const Shop = connection.define(
             allowNull: false
         },
         shopCategory:{
-            type: DataTypes.ENUM("category1", "category2", "category3"),
-            defaultValue: "category1", 
+            type: DataTypes.ENUM("Alimentos y Comestibles", "Frutas y Verduras Frescas", "Carnes y Embutidos","Pescados y Mariscos Frescos", "Panadería y Repostería" ),
+            defaultValue: "Alimentos y Comestibles", 
             allowNull: false, 
         }
 
