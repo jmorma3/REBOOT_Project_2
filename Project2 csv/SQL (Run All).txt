@@ -53,7 +53,7 @@ VALUES
 
 INSERT INTO users (id, username, email, password, role, contactInfoId)
 VALUES
-(1, 'ADMIN', 'admin@email.com', 'password1', 'admin', 1),
+(1, 'ADMIN', 'admin@email.com', '$2b$10$G6jdGOqCFHK4ebmo/1gmDuskQfTN6Kxfw3eOAUdnLaEPH/uDF.2.a', 'admin', 1),
 (2, 'lucia19', 'luciamartinez@email.com', 'password2', 'owner', 2),
 (3, 'carlos78', 'carlosfernandez@email.com', 'password3', 'customer', 3),
 (4, 'mariaperez', 'mariaperez@email.com', 'password4', 'owner', 4),
