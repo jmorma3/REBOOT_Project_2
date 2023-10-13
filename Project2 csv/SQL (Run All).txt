@@ -1,141 +1,93 @@
--- Inserción de datos en la tabla "categories"
+-- Inserción de categorías en la tabla "categories"
 INSERT INTO categories (id, categoryName, categoryDescription)
 VALUES
-(1, 'Clothing', 'Fashionable clothing for all seasons'),
-(2, 'Electronics', 'Electronic gadgets and accessories'),
-(3, 'Fresh Foods', 'High-quality fresh groceries'),
-(4, 'Appliances', 'Home appliances and kitchenware'),
-(5, 'Sports and Outdoor', 'Sports equipment and outdoor gear'),
-(6, 'Beauty and Personal Care', 'Beauty and personal care products'),
-(7, 'Toys and Games', 'Toys, games, and entertainment'),
-(8, 'Automotive', 'Automotive parts and accessories'),
-(9, 'Books and Magazines', 'A wide range of books and magazines'),
-(10, 'Furniture and Home Decor', 'Home furniture and decor items');
+(1, 'Carnicería', 'Cortes frescos de carne y delicatessen'),
+(2, 'Florería', 'Hermosas flores y arreglos florales'),
+(3, 'Pescadería', 'Variedad de mariscos y pescado fresco'),
+(4, 'Panadería', 'Pan recién horneado, pasteles y postres'),
+(5, 'Frutería', 'Amplia selección de frutas y verduras frescas'),
+(6, 'Tienda de Ferretería', 'Herramientas, equipo y suministros para mejoras en el hogar'),
+(7, 'Tienda de Regalos', 'Regalos únicos, tarjetas y recuerdos'),
+(8, 'Charcutería', 'Sándwiches gourmet, quesos y embutidos'),
+(9, 'Cafetería', 'Café de calidad, té y productos horneados'),
+(10, 'Librería', 'Libros, revistas y materiales de lectura');
 
--- Inserción de datos en la tabla "contactInfo"
+
+-- Inserción de datos de contacto en la tabla "contactInfo"
 INSERT INTO contactInfo (id, name, surname, phone, address, zipCode)
 VALUES
-(1, 'John', 'Smith', '123456789', '123 Main Street, 101', '12345'),
-(2, 'Jane', 'Doe', '987654321', '456 Elm Avenue, 202', '54321'),
-(3, 'Michael', 'Johnson', '456789123', '789 Oak Drive, 303', '67890'),
-(4, 'Emily', 'Davis', '789123456', '234 Pine Road, 404', '45678'),
-(5, 'William', 'Anderson', '234567890', '567 Cedar Lane, 505', '23456'),
-(6, 'Sarah', 'Wilson', '654321789', '890 Birch Street, 606', '76543'),
-(7, 'James', 'Taylor', '345678912', '123 Willow Avenue, 707', '32123'),
-(8, 'Olivia', 'Martin', '567890123', '456 Redwood Drive, 808', '87654'),
-(9, 'Robert', 'Brown', '432109876', '789 Maple Lane, 909', '43210'),
-(10, 'Sophia', 'Moore', '876543210', '234 Spruce Road, 1010', '56789'),
-(11, 'David', 'Garcia', '210987654', '567 Pine Street, 1111', '21098'),
-(12, 'Emma', 'Lopez', '543210987', '890 Oak Avenue, 1212', '54321'),
-(13, 'Daniel', 'Harris', '109876543', '123 Birch Drive, 1313', '98765'),
-(14, 'Ava', 'Clark', '321098765', '456 Elm Lane, 1414', '32109'),
-(15, 'Joseph', 'Lewis', '765432109', '789 Cedar Road, 1515', '65432'),
-(16, 'Mia', 'Young', '234567890', '234 Willow Drive, 1616', '23456'),
-(17, 'William', 'Hall', '876543210', '567 Redwood Street, 1717', '87654'),
-(18, 'Sophia', 'Adams', '345678912', '890 Cedar Avenue, 1818', '34567'),
-(19, 'Matthew', 'Scott', '432109876', '123 Oak Lane, 1919', '43210'),
-(20, 'Olivia', 'Baker', '654321789', '456 Maple Road, 2020', '65432');
+(1, 'Juan', 'Pérez', '612345678', 'Calle Principal, 101', '12345'),
+(2, 'Ana', 'Doe', '698765432', 'Avenida Elm, 202', '54321'),
+(3, 'Miguel', 'Johnson', '645678912', 'Calle Roble, 303', '67890'),
+(4, 'Emilia', 'Davis', '678912345', 'Calle Pino, 404', '45678'),
+(5, 'Guillermo', 'Anderson', '623456789', 'Calle Cedro, 505', '23456'),
+(6, 'Sara', 'Wilson', '654321789', 'Calle Abedul, 606', '76543'),
+(7, 'Jaime', 'Taylor', '634567891', 'Avenida Sauce, 707', '32123'),
+(8, 'Olivia', 'Martín', '678901234', 'Calle Redwood, 808', '87654'),
+(9, 'Roberto', 'Brown', '643210987', 'Calle Arce, 909', '43210'),
+(10, 'Sofía', 'Moore', '687654321', 'Calle Abeto, 1010', '56789'),
+(11, 'David', 'García', '621098765', 'Calle Pino, 1111', '21098'),
+(12, 'Emma', 'López', '654321098', 'Avenida Roble, 1212', '54321'),
+(13, 'Daniel', 'Harris', '610987654', 'Calle Abedul, 1313', '98765'),
+(14, 'Ava', 'Clark', '632109876', 'Calle Elm, 1414', '32109'),
+(15, 'José', 'Lewis', '676543210', 'Calle Cedro, 1515', '65432');
 
 
 -- Inserción de datos en la tabla "products"
-INSERT INTO products (id, productName, productDescription, price)
+INSERT INTO products ("id", "productName", "productDescription", "price")
 VALUES
-(1, 'Trendy Jeans', 'Stylish denim jeans for all occasions', 39.99),
-(2, 'Smartphone X', 'State-of-the-art smartphone with advanced features', 699.99),
-(3, 'Organic Apples', 'Fresh and organic apples from local farms', 2.99),
-(4, 'Coffee Maker', 'High-quality coffee maker for your daily brew', 49.99),
-(5, 'Soccer Ball', 'Durable soccer ball for sports enthusiasts', 19.99),
-(6, 'Luxury Perfume', 'Elegant and luxurious fragrance for women', 89.99),
-(7, 'Board Game Bundle', 'Set of classic board games for family fun', 29.99),
-(8, 'Car Wax Kit', 'Complete car wax kit for a shiny finish', 24.99),
-(9, 'Mystery Novel', 'Bestselling mystery novel for avid readers', 12.99),
-(10, 'Antique Desk', 'Vintage wooden desk for a classic look', 199.99),
-(11, 'Ribeye Steak', 'Prime ribeye steak for a gourmet dinner', 15.99),
-(12, 'Fresh Roses', 'Beautiful bouquet of fresh roses for any occasion', 29.99),
-(13, 'Fresh Salmon', 'Premium salmon fillet for a delicious meal', 9.99),
-(14, 'Artisan Baguette', 'Crusty artisan baguette for your sandwiches', 3.99),
-(15, 'Hammer Drill', 'Powerful hammer drill for home improvement', 79.99),
-(16, 'Handcrafted Jewelry', 'Elegant handcrafted jewelry for special occasions', 49.99),
-(17, 'Children´s Toys', 'Assortment of fun and educational toys for kids', 19.99),
-(18, 'Car Maintenance Kit', 'Essential car maintenance tools and supplies', 49.99),
-(19, 'Science Fiction Book', 'Captivating science fiction book for sci-fi fans', 14.99),
-(20, 'Vintage Armchair', 'Classic vintage armchair for your home decor', 149.99),
-(21, 'Pork Chops', 'Delicious and tender pork chops for cooking', 8.99),
-(22, 'Sunflowers Bouquet', 'Bright and cheerful sunflowers bouquet', 19.99),
-(23, 'Fresh Shrimp', 'Fresh and succulent shrimp for your dishes', 12.99),
-(24, 'Artisan Sourdough', 'Artisan sourdough bread with a rustic taste', 4.99),
-(25, 'Cordless Drill', 'Cordless drill with versatility and power', 59.99),
-(26, 'Gemstone Necklace', 'Exquisite gemstone necklace for a touch of luxury', 79.99),
-(27, 'Educational Puzzles', 'Educational puzzles for kids´ learning and fun', 14.99),
-(28, 'Car Detailing Kit', 'Complete car detailing kit for a polished look', 34.99),
-(29, 'Historical Novel', 'Engaging historical novel for history buffs', 11.99),
-(30, 'Mid-Century Sofa', 'Stylish mid-century modern sofa for your living room', 299.99);
+(1, 'Arroz Integral', 'Arroz integral de alta calidad para comidas saludables', 2.99),
+(2, 'Aceite de Oliva Extra Virgen', 'Aceite de oliva extra virgen para cocinar y aderezar', 7.99),
+(3, 'Tomates Frescos', 'Tomates frescos y jugosos para ensaladas y salsas', 1.99),
+(4, 'Queso Parmesano', 'Queso parmesano auténtico para dar sabor a tus platos', 5.99),
+(5, 'Filete de Salmón Fresco', 'Filete de salmón fresco y saludable para asar o cocinar', 8.99),
+(6, 'Leche Orgánica', 'Leche orgánica fresca de granjas locales', 3.99),
+(7, 'Miel de Abeja Pura', 'Miel de abeja 100% pura y natural', 4.99),
+(8, 'Pan Integral', 'Pan integral recién horneado para bocadillos saludables', 2.49),
+(9, 'Huevos Orgánicos', 'Huevos orgánicos de gallinas felices', 3.49),
+(10, 'Mermelada de Fresa', 'Mermelada casera de fresa para tus tostadas', 3.29),
+(11, 'Café Gourmet', 'Café gourmet de origen único para amantes del café', 9.99),
+(12, 'Cereales Multigrano', 'Cereales multigrano ricos en fibra y nutrientes', 4.79),
+(13, 'Pechuga de Pollo', 'Pechuga de pollo magra para platos saludables', 6.99),
+(14, 'Manzanas Gala', 'Manzanas Gala frescas y crujientes', 1.79),
+(15, 'Pasta de Trigo Integral', 'Pasta de trigo integral para platos deliciosos', 2.69),
+(16, 'Yogur Griego Natural', 'Yogur griego natural rico en proteínas', 1.99),
+(17, 'Aguacates Hass', 'Aguacates Hass maduros y deliciosos', 2.29),
+(18, 'Café Descafeinado', 'Café descafeinado suave y aromático', 7.49),
+(19, 'Almendras Crudas', 'Almendras crudas para un bocadillo saludable', 5.49),
+(20, 'Sopa de Tomate Casera', 'Sopa de tomate casera para calentarte en días fríos', 3.99);
+
 
 -- Inserción de datos en la tabla "shops"
-INSERT INTO shops (id, shopName, shopCategory)
+INSERT INTO shops ("id", "shopName", "shopCategory")
 VALUES
-(1, 'Fashion Haven', 'Clothing'),
-(2, 'Tech Universe', 'Electronics'),
-(3, 'Local Market Grocers', 'Fresh Foods'),
-(4, 'Home Essentials Store', 'Appliances'),
-(5, 'Sports Emporium', 'Sports and Outdoor'),
-(6, 'Beauty Boutique', 'Beauty and Personal Care'),
-(7, 'Toylandia', 'Toys and Games'),
-(8, 'Auto Parts Superstore', 'Automotive'),
-(9, 'Book Nook', 'Books and Magazines'),
-(10, 'Home Decor Elegance', 'Furniture and Home Decor');
+(1, 'Supermercado Fresco', 'Alimentos y Comestibles'),
+(2, 'Frutas y Verduras Express', 'Frutas y Verduras Frescas'),
+(3, 'Carnicería Don Juan', 'Carnes y Embutidos'),
+(4, 'Pescados y Mariscos Delicias', 'Pescados y Mariscos Frescos'),
+(5, 'Panadería Sabor Casero', 'Panadería y Repostería');
 
 
 -- Inserción de datos en la tabla "suppliers"
-INSERT INTO suppliers (id, supplierName)
+INSERT INTO suppliers ("id", "supplierName")
 VALUES
-(1, 'GlobalTech Suppliers'),
-(2, 'Nature´s Bounty Produce'),
-(3, 'HomeTech Distributors'),
-(4, 'SportsGear Producers'),
-(5, 'Beauty Essentials Inc.'),
-(6, 'Toyland Suppliers'),
-(7, 'Auto Parts Warehouse'),
-(8, 'Book Distributors Ltd.'),
-(9, 'HomeDecor Creations'),
-(10, 'Fashion Trends Wholesale'),
-(11, 'Meat Master Suppliers'),
-(12, 'Floral Creations Wholesale'),
-(13, 'Seafood Suppliers Inc.'),
-(14, 'Bakery Essentials Distributors'),
-(15, 'Hardware Tools Wholesale');
+(1, 'Agricultura Orgánica S.A.'),
+(2, 'Productores de Aceite de Oliva Extra Virgen'),
+(3, 'Pescados Frescos y Mariscos de Calidad'),
+(4, 'Panadería Artesanal Tradicional'),
+(5, 'Café Gourmet y Granos de Origen Único');
 
 
 -- Inserción de datos en la tabla "users"
-INSERT INTO users (id, username, email, password, role)
+INSERT INTO users ("id", "username", "email", "password", "role")
 VALUES
 (1, 'ADMIN', 'admin@email.com', 'password1', 'admin'),
 (2, 'lucia19', 'luciamartinez@email.com', 'password2', 'owner'),
-(3, 'carlos78', 'carlosfernandez@email.com', 'password3', 'owner'),
+(3, 'carlos78', 'carlosfernandez@email.com', 'password3', 'customer'),
 (4, 'mariaperez', 'mariaperez@email.com', 'password4', 'owner'),
-(5, 'davidm_45', 'davidmartinez@email.com', 'password5', 'owner'),
+(5, 'davidm_45', 'davidmartinez@email.com', 'password5', 'customer'),
 (6, 'anag_22', 'anagomez@email.com', 'password6', 'owner'),
-(7, 'maria_89', 'mariagarcia@email.com', 'password7', 'owner'),
+(7, 'maria_89', 'mariagarcia@email.com', 'password7', 'customer'),
 (8, 'pedro21', 'pedromartin@email.com', 'password8', 'owner'),
-(9, 'andres_s', 'andresrodriguez@email.com', 'password9', 'owner'),
-(10, 'carmen12', 'carmenfernandez@email.com', 'password10', 'owner'),
-(11, 'sergio.g', 'sergiogomez@email.com', 'password11', 'owner'),
-(12, 'susanam', 'susanamartinez@email.com', 'password12', 'owner'),
-(13, 'raquelc', 'raquel@email.com', 'password13', 'customer'),
-(14, 'daniel_r', 'daniel@email.com', 'password14', 'customer'),
-(15, 'elena_s', 'elena@email.com', 'password15', 'customer'),
-(16, 'juan23', 'juan@email.com', 'password16', 'customer'),
-(17, 'alicia_44', 'alicia@email.com', 'password17', 'customer'),
-(18, 'josefina_f', 'josefina@email.com', 'password18', 'customer'),
-(19, 'lucas.p', 'lucas@email.com', 'password19', 'customer'),
-(20, 'ana_b', 'ana_barreto@email.com', 'password20', 'customer'),
-(21, 'carla34', 'carla@email.com', 'password21', 'customer'),
-(22, 'martin88', 'martin@email.com', 'password22', 'customer'),
-(23, 'rocio.m', 'rocio@email.com', 'password23', 'customer'),
-(24, 'luis_a', 'luis@email.com', 'password24', 'customer'),
-(25, 'ana_maria_7', 'ana@email.com', 'password25', 'customer'),
-(26, 'carlos33', 'carlos@email.com', 'password26', 'customer'),
-(27, 'ines_j', 'ines@email.com', 'password27', 'customer'),
-(28, 'manuel67', 'manuel@email.com', 'password28', 'customer'),
-(29, 'teresa_s', 'teresa@email.com', 'password29', 'customer'),
-(30, 'javi_33', 'javierrodriguez@email.com', 'password30', 'owner');
+(9, 'andres_s', 'andresrodriguez@email.com', 'password9', 'customer'),
+(10, 'carmen12', 'carmenfernandez@email.com', 'password10', 'owner');
