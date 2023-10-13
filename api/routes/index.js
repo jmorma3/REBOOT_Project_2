@@ -7,6 +7,7 @@ const shopRouter = require('./shop.route')
 const contactInfoRouter = require('./contactInfo.route')
 const saleRouter = require('./sale.route')
 const purchaseRouter = require('./purchase.route')
+const authRouter = require('./auth.route')
 
 router.use('/user', userRouter)
 router.use('/product', productRouter)
@@ -16,5 +17,6 @@ router.use('/shop', shopRouter)
 router.use('/contactInfo', contactInfoRouter)
 router.use('/sale', saleRouter)
 router.use('/purchase', purchaseRouter)
+router.use('/auth', authRouter)
 
 module.exports = router
