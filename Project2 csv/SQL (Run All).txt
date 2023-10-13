@@ -14,7 +14,7 @@ VALUES
 
 
 -- Inserción de datos de contacto en la tabla "contactInfo"
-INSERT INTO contactInfo (id, name, surname, phone, address, zipCode)
+INSERT INTO contactInfos (id, name, surname, phone, address, zipCode)
 VALUES
 (1, 'Juan', 'Pérez', '612345678', 'Calle Principal, 101', '12345'),
 (2, 'Ana', 'Doe', '698765432', 'Avenida Elm, 202', '54321'),
@@ -34,7 +34,7 @@ VALUES
 
 
 -- Inserción de datos en la tabla "products"
-INSERT INTO products ("id", "productName", "productDescription", "price")
+INSERT INTO products (id, productName, productDescription, price)
 VALUES
 (1, 'Arroz Integral', 'Arroz integral de alta calidad para comidas saludables', 2.99),
 (2, 'Aceite de Oliva Extra Virgen', 'Aceite de oliva extra virgen para cocinar y aderezar', 7.99),
@@ -59,7 +59,7 @@ VALUES
 
 
 -- Inserción de datos en la tabla "shops"
-INSERT INTO shops ("id", "shopName", "shopCategory")
+INSERT INTO shops (id, shopName, shopCategory)
 VALUES
 (1, 'Supermercado Fresco', 'Alimentos y Comestibles'),
 (2, 'Frutas y Verduras Express', 'Frutas y Verduras Frescas'),
@@ -69,7 +69,7 @@ VALUES
 
 
 -- Inserción de datos en la tabla "suppliers"
-INSERT INTO suppliers ("id", "supplierName")
+INSERT INTO suppliers (id, supplierName)
 VALUES
 (1, 'Agricultura Orgánica S.A.'),
 (2, 'Productores de Aceite de Oliva Extra Virgen'),
@@ -79,7 +79,7 @@ VALUES
 
 
 -- Inserción de datos en la tabla "users"
-INSERT INTO users ("id", "username", "email", "password", "role")
+INSERT INTO users (id, username, email, password, role)
 VALUES
 (1, 'ADMIN', 'admin@email.com', 'password1', 'admin'),
 (2, 'lucia19', 'luciamartinez@email.com', 'password2', 'owner'),
