@@ -54,15 +54,15 @@ VALUES
 INSERT INTO users (id, username, email, password, role, contactInfoId)
 VALUES
 (1, 'ADMIN', 'admin@email.com', '$2b$10$G6jdGOqCFHK4ebmo/1gmDuskQfTN6Kxfw3eOAUdnLaEPH/uDF.2.a', 'admin', 1),
-(2, 'lucia19', 'luciamartinez@email.com', 'password2', 'owner', 2),
-(3, 'carlos78', 'carlosfernandez@email.com', 'password3', 'customer', 3),
-(4, 'mariaperez', 'mariaperez@email.com', 'password4', 'owner', 4),
-(5, 'davidm_45', 'davidmartinez@email.com', 'password5', 'customer', 5),
-(6, 'anag_22', 'anagomez@email.com', 'password6', 'owner', 6),
-(7, 'maria_89', 'mariagarcia@email.com', 'password7', 'customer', 7),
-(8, 'pedro21', 'pedromartin@email.com', 'password8', 'owner', 8),
-(9, 'andres_s', 'andresrodriguez@email.com', 'password9', 'customer', 9),
-(10, 'carmen12', 'carmenfernandez@email.com', 'password10', 'owner', 10);
+(2, 'lucia19', 'luciamartinez@email.com', '$2b$10$.C33LMXrjN0w/qVxSXV6cOIr.EXMncedV0nBhoyIB0LdhvmO/FAhq', 'owner', 2),
+(3, 'carlos78', 'carlosfernandez@email.com', '$2b$10$/3DbH7sIa3.XdjkDqGF/b.ORmWuuevvFuhd.BpW6nnImXJ7dUNYzW', 'customer', 3),
+(4, 'mariaperez', 'mariaperez@email.com', '$2b$10$NgqiEUfgVoYUzGzfOHJ25upuRAMtManDwzSdZ9wGl/F.F7s.Es6S.', 'owner', 4),
+(5, 'davidm_45', 'davidmartinez@email.com', '$2b$10$gTs96FGucOFQyb0ctQ1dmOTZ4c.tNH0eBAUtvdUYc70eQ95Rtp7t2', 'customer', 5),
+(6, 'anag_22', 'anagomez@email.com', '$2b$10$5niGMHvmeE.niv/7PTVpNeVol5onb4dEz15P8wk7WgmoYDndwLjcG', 'owner', 6),
+(7, 'maria_89', 'mariagarcia@email.com', '$2b$10$q2h8NOOHBYHNpBgksrFqY.7rUD//CkTWrjbMxs9/O7Zv/afyOTJCS', 'customer', 7),
+(8, 'pedro21', 'pedromartin@email.com', '$2b$10$aBVNQt.yjcMnqWe9uqkuCOCE./ov0qDwIAYSw9Vzk1vq9dIKpcfXW', 'owner', 8),
+(9, 'andres_s', 'andresrodriguez@email.com', '$2b$10$UGVWwivvZVWB/AnFwxlqeuflxe6XZ8Ek3XeVjuiPTb01RFqEv1AZO', 'customer', 9),
+(10, 'carmen12', 'carmenfernandez@email.com', '$2b$10$pLIOn8kVTc1dTfBfH3tCW.ndeDxIB7t7I0AHva4dp7kVjWlabiPUW', 'owner', 10);
 
 INSERT INTO contactInfos (id, name, surname, phone, address, zipCode)
 VALUES
