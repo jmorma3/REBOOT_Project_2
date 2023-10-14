@@ -1,4 +1,5 @@
 const Purchase = require("../models/purchase.model")
+const Shop = require("../models/shop.model")
 
 const getAllPurchases = async (req, res) => {
     try {
@@ -32,10 +33,20 @@ const createPurchase = async (req, res) => {
     try {
         const purchase = await Purchase.create({
             purchase_num: req.body.purchase_num,
-            purchase_payment_method: req.body.payment_method,
+            purchase_payment_method: req.body.purchase_payment_method,
             purchaseProductQuantity: req.body.purchaseProductQuantity,
-            purchaseTotal: req.body.total
+            purchaseTotal: req.body.purchaseTotal, 
+            productId: req.body.productId, 
         })
+
+        const shop = await Shop.findOne({
+            where: {
+                userId: res.locals.user.id
+            }
+        })
+
+        await shop.addPurchase(purchase)
+
         return res.status(200).json({ message: 'Purchase created', purchase: purchase })
     } catch (error) {
         return res.status(500).json({ error: error.message })

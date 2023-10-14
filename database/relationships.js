@@ -17,23 +17,70 @@ const addRelationshipsToModels = () => {
         ContactInfo.hasOne(Supplier)
         Supplier.belongsTo(ContactInfo)
 
-        //One to Many:
-        User.hasMany(Shop)
-        Shop.belongsTo(User)
+        
 
+        //One to Many:
         Category.hasMany(Product)
         Product.belongsTo(Category)
 
-        //Nuevas relaciones JUANAN:
-        //one to many:
-        Product.hasMany(Sale)
-        Sale.belongsTo(Product)
+        User.hasMany(Shop)
+        Shop.belongsTo(User)
 
-        User.hasMany(Sale)
-        Sale.belongsTo(User)
+        Shop.hasMany(Purchase)
+        Purchase.belongsTo(Shop)
+    
+        Supplier.hasMany(Purchase)
+        Purchase.belongsTo(Supplier)
+    
+        Product.hasMany(Purchase)
+        Purchase.belongsTo(Product)
 
         Shop.hasMany(Sale)
         Sale.belongsTo(Shop)
+
+        Product.hasMany(Sale)
+        Sale.belongsTo(Product)
+
+        //Pendiente de crear nuevo modelo "Customer":
+        // Customer.hasMany(Sale)
+        // Sale.belongsTo(Customer)
+
+        //Many to Many:
+        Supplier.belongsToMany(Shop, {through: "Shops_Suppliers"})
+        Shop.belongsToMany(Supplier, {through: "Shops_Suppliers"})
+
+        Shop.belongsToMany(Sale, {through: "Shop_Sales"})
+        Sale.belongsToMany(Shop, {through: "Shop_Sales"})
+
+        
+
+
+
+
+
+        // ContactInfo.hasOne(User)
+        // User.belongsTo(ContactInfo)
+
+        // ContactInfo.hasOne(Supplier)
+        // Supplier.belongsTo(ContactInfo)
+
+        // //One to Many:
+        // User.hasMany(Shop)
+        // Shop.belongsTo(User)
+
+        // Category.hasMany(Product)
+        // Product.belongsTo(Category)
+
+        // //Nuevas relaciones JUANAN:
+        // //one to many:
+        // Product.hasMany(Sale)
+        // Sale.belongsTo(Product)
+
+        // User.hasMany(Sale)
+        // Sale.belongsTo(User)
+
+        // Shop.hasMany(Sale)
+        // Sale.belongsTo(Shop)
 
         //Many to Many:
         // User.belongsToMany(Product, { through: Sale, as: 'userSale' })
