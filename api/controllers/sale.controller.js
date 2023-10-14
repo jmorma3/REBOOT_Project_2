@@ -1,4 +1,5 @@
 const Sale = require('../models/sale.model')
+const Product = require('../models/product.model')
 
 const getAllSales = async (req, res) => {
     try {
@@ -11,7 +12,11 @@ const getAllSales = async (req, res) => {
 
 const getOneSale = async (req, res) => {
     try {
-        const sale = await Sale.findOne(req.params.saleNum)
+        const sale = await Sale.findOne({
+            where:{
+                sale_num: req.params.saleNum
+            }
+        })
         if (!sale) {
             return res.status(404).send('Sale not found')
         }
@@ -25,10 +30,13 @@ const createSale = async (req, res) => {
     try {
         const sale = await Sale.create({
             sale_num: req.body.sale_num,
-            sale_payment_method: req.body.payment_method,
+            sale_payment_method: req.body.sale_payment_method,
             saleProductQuantity: req.body.saleProductQuantity,
-            saleTotal: req.body.total
+            saleTotal: req.body.saleTotal,
+            productId: req.body.productId
         })
+        const user = res.locals.user
+        user.addSale(sale)
 
         return res.status(200).json({ message: 'Sale created', sale: sale })
     } catch (error) {

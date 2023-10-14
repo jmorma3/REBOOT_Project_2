@@ -24,20 +24,31 @@ const addRelationshipsToModels = () => {
         Category.hasMany(Product)
         Product.belongsTo(Category)
 
+        //Nuevas relaciones JUANAN:
+        //one to many:
+        Product.hasMany(Sale)
+        Sale.belongsTo(Product)
+
+        User.hasMany(Sale)
+        Sale.belongsTo(User)
+
+        Shop.hasMany(Sale)
+        Sale.belongsTo(Shop)
+
         //Many to Many:
-        User.belongsToMany(Product, { through: Sale, as: 'userSale' })
-        Product.belongsToMany(User, { through: Sale, as: 'productUserSale' })
-        Shop.belongsToMany(Product, { through: Sale, as: 'shopSale' })
-        Product.belongsToMany(Shop, { through: Sale, as: 'productShopSale' })
+        // User.belongsToMany(Product, { through: Sale, as: 'userSale' })
+        // Product.belongsToMany(User, { through: Sale, as: 'productUserSale' })
+        // Shop.belongsToMany(Product, { through: Sale, as: 'shopSale' })
+        // Product.belongsToMany(Shop, { through: Sale, as: 'productShopSale' })
 
-        Sale.belongsTo(User, { foreignKey: 'userId' })
+        // Sale.belongsTo(User, { foreignKey: 'userId' })
 
-        Shop.belongsToMany(Product, { through: Purchase, as: 'shopPurchase' })
-        Product.belongsToMany(Shop, { through: Purchase, as: 'productShopPurchase' })
-        Supplier.belongsToMany(Product, { through: Purchase, as: 'supplierPurchase' })
-        Product.belongsToMany(Supplier, { through: Purchase, as: 'productSupplierPurchase' })
+        // Shop.belongsToMany(Product, { through: Purchase, as: 'shopPurchase' })
+        // Product.belongsToMany(Shop, { through: Purchase, as: 'productShopPurchase' })
+        // Supplier.belongsToMany(Product, { through: Purchase, as: 'supplierPurchase' })
+        // Product.belongsToMany(Supplier, { through: Purchase, as: 'productSupplierPurchase' })
 
-        Purchase.belongsTo(Shop, { foreignKey: 'shopId' })
+        // Purchase.belongsTo(Shop, { foreignKey: 'shopId' })
 
         console.log('Relationships added to all models')
     } catch (error) {
