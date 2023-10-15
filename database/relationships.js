@@ -8,7 +8,6 @@ const ContactInfo = require("../api/models/contactInfo.model")
 const Category = require("../api/models/category.model")
 const Customer = require("../api/models/customer.model")
 
-
 const addRelationshipsToModels = () => {
     try {
         //One to One:
@@ -48,9 +47,6 @@ const addRelationshipsToModels = () => {
         Sale.belongsTo(Customer)
 
         //Many to Many:
-        Purchase.belongsToMany(Product, {through: "Purchase_Products"})
-        Product.belongsToMany(Purchase, {through: "Purchase_Products"})
-
         Shop.belongsToMany(Product, {through: "Shop_Products"})
         Product.belongsToMany(Shop, {through: "Shop_Products"})
         
