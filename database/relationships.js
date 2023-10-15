@@ -6,6 +6,7 @@ const Purchase = require("../api/models/purchase.model")
 const Product = require("../api/models/product.model")
 const ContactInfo = require("../api/models/contactInfo.model")
 const Category = require("../api/models/category.model")
+const Customer = require("../api/models/customer.model")
 
 
 const addRelationshipsToModels = () => {
@@ -17,14 +18,18 @@ const addRelationshipsToModels = () => {
         ContactInfo.hasOne(Supplier)
         Supplier.belongsTo(ContactInfo)
 
-        
+        User.hasOne(Shop)
+        Shop.belongsTo(User)
 
         //One to Many:
         Category.hasMany(Product)
         Product.belongsTo(Category)
 
-        User.hasMany(Shop)
-        Shop.belongsTo(User)
+        Supplier.hasMany(Product)
+        Product.belongsTo(Supplier)
+
+        Shop.hasMany(Product)
+        Product.belongsTo(Shop)
 
         Shop.hasMany(Purchase)
         Purchase.belongsTo(Shop)
@@ -42,61 +47,13 @@ const addRelationshipsToModels = () => {
         Sale.belongsTo(Product)
 
         //Pendiente de crear nuevo modelo "Customer":
-        // Customer.hasMany(Sale)
-        // Sale.belongsTo(Customer)
+        Customer.hasMany(Sale)
+        Sale.belongsTo(Customer)
 
         //Many to Many:
-        Supplier.belongsToMany(Shop, {through: "Shops_Suppliers"})
-        Shop.belongsToMany(Supplier, {through: "Shops_Suppliers"})
-
-        Shop.belongsToMany(Sale, {through: "Shop_Sales"})
-        Sale.belongsToMany(Shop, {through: "Shop_Sales"})
-
+        Purchase.belongsToMany(Product, {through: "Purchase_Products"})
+        Product.belongsToMany(Purchase, {through: "Purchase_Products"})
         
-
-
-
-
-
-        // ContactInfo.hasOne(User)
-        // User.belongsTo(ContactInfo)
-
-        // ContactInfo.hasOne(Supplier)
-        // Supplier.belongsTo(ContactInfo)
-
-        // //One to Many:
-        // User.hasMany(Shop)
-        // Shop.belongsTo(User)
-
-        // Category.hasMany(Product)
-        // Product.belongsTo(Category)
-
-        // //Nuevas relaciones JUANAN:
-        // //one to many:
-        // Product.hasMany(Sale)
-        // Sale.belongsTo(Product)
-
-        // User.hasMany(Sale)
-        // Sale.belongsTo(User)
-
-        // Shop.hasMany(Sale)
-        // Sale.belongsTo(Shop)
-
-        //Many to Many:
-        // User.belongsToMany(Product, { through: Sale, as: 'userSale' })
-        // Product.belongsToMany(User, { through: Sale, as: 'productUserSale' })
-        // Shop.belongsToMany(Product, { through: Sale, as: 'shopSale' })
-        // Product.belongsToMany(Shop, { through: Sale, as: 'productShopSale' })
-
-        // Sale.belongsTo(User, { foreignKey: 'userId' })
-
-        // Shop.belongsToMany(Product, { through: Purchase, as: 'shopPurchase' })
-        // Product.belongsToMany(Shop, { through: Purchase, as: 'productShopPurchase' })
-        // Supplier.belongsToMany(Product, { through: Purchase, as: 'supplierPurchase' })
-        // Product.belongsToMany(Supplier, { through: Purchase, as: 'productSupplierPurchase' })
-
-        // Purchase.belongsTo(Shop, { foreignKey: 'shopId' })
-
         console.log('Relationships added to all models')
     } catch (error) {
         throw error

@@ -6,11 +6,7 @@ const Purchase = connection.define(
     {
         purchase_num: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                len: [10] // Add validate regex later
-            }
+            allowNull: false
         },
         purchase_payment_method: {
             type: DataTypes.ENUM('cash', 'credit_card', 'paypal', 'transfer'),
