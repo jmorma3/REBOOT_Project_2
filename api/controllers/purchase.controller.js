@@ -111,9 +111,9 @@ const createPurchase = async (req, res) => {
                 }
             })
 
+            await shop.addPurchase(purchase)
             await shop.addProduct(product)
             await supplier.addPurchase(purchase)
-            //await purchase.addProduct(product)
 
             return res.status(200).send(`${qtyRequired} de ${product.productName} añadido/s a tu compra con factura Nº: ${purchase.purchase_num}`)
         } else {
