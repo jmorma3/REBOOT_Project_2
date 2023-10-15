@@ -7,6 +7,7 @@ const Product = require("../api/models/product.model")
 const ContactInfo = require("../api/models/contactInfo.model")
 const Category = require("../api/models/category.model")
 const Customer = require("../api/models/customer.model")
+const shopProduct = require('../api/models/shopProduct.model')
 
 const addRelationshipsToModels = () => {
     try {
@@ -47,8 +48,8 @@ const addRelationshipsToModels = () => {
         Sale.belongsTo(Customer)
 
         //Many to Many:
-        Shop.belongsToMany(Product, {through: "Shop_Products"})
-        Product.belongsToMany(Shop, {through: "Shop_Products"})
+        Shop.belongsToMany(Product, {through: shopProduct})
+        Product.belongsToMany(Shop, {through: shopProduct})
         
         console.log('Relationships added to all models')
     } catch (error) {
