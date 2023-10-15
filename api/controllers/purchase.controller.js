@@ -3,6 +3,7 @@ const Purchase = require("../models/purchase.model")
 const Shop = require("../models/shop.model")
 const Supplier = require("../models/supplier.model")
 const User = require("../models/user.model")
+const shopProduct = require("../models/shopProduct.model")
 
 const getAllPurchases = async (req, res) => {
     try {
@@ -73,7 +74,8 @@ const getOnePurchase = async (req, res) => {
 }
 
 const createPurchase = async (req, res) => {
-    try {
+    try { 
+
         const product = await Product.findOne({
             where: {
                 id: req.body.productId,
@@ -108,6 +110,14 @@ const createPurchase = async (req, res) => {
             const supplier = await Supplier.findOne({
                 where: {
                     id: product.supplierId
+                }
+            })
+
+            // Actualizar la cantidad de producto comprado en la tabla de "shopProduct":
+            await shopProduct.update({ quantityAvailable: req.body.purchaseProductQuantity }, {
+                returning: true,
+                where: {
+                    productId: req.body.productId
                 }
             })
 

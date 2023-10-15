@@ -1,5 +1,7 @@
 const Shop = require("../models/shop.model")
 const User = require("../models/user.model")
+const shopProduct = require("../models/shopProduct.model")
+const Product = require("../models/product.model")
 
 const getAllShops = async (req, res) => {
     try {
@@ -31,15 +33,28 @@ const getOneShop = async (req, res) => {
 
 const getOwnShopInfo = async (req, res) => {
     try {
+       
         const shop = await Shop.findOne({
             where: {
                 userId: res.locals.user.id
             },
             include: {
-                model: User,
-                attributes: ['username', 'email']
-            }
+                model: Product,
+                attributes: []
+             }
+            })
+
+        //Manejo del array:
+        const productsArr = await shop.getProducts()
+        
+        productsArr.forEach((product)=>{
+            console.log("Info del array:")
+            console.log(product.dataValues.productName)
+            console.log(product.dataValues.productDescription)
+            console.log(product.dataValues.price)
+            console.log(product.dataValues.shopProduct.dataValues.quantityAvailable)
         })
+        
         if(!shop){
             return res.status(404).send('You dont have a shop!')
         }
