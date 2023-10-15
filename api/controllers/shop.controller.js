@@ -43,22 +43,46 @@ const getOwnShopInfo = async (req, res) => {
                 attributes: []
              }
             })
-
+        
         //Manejo del array:
         const productsArr = await shop.getProducts()
-        
+        let productName
+        let productDescription
+        let productPrice
+        let productQuantity
+
+        let productsNamesArr = []
+
         productsArr.forEach((product)=>{
-            console.log("Info del array:")
-            console.log(product.dataValues.productName)
-            console.log(product.dataValues.productDescription)
-            console.log(product.dataValues.price)
-            console.log(product.dataValues.shopProduct.dataValues.quantityAvailable)
+            productName = product.dataValues.productName
+            productDescription = product.dataValues.productDescription
+            productPrice = product.dataValues.price
+            productQuantity = product.dataValues.shopProduct.dataValues.quantityAvailable
+            
+            productsNamesArr.push(`
+                Product name: ${ productName }
+                Description: ${ productDescription }
+                Price: ${ productPrice } 
+                Quantity: ${ productQuantity }
+            `)
         })
-        
+
+        const shopName = shop.dataValues.shopName
+        const shopCategory = shop.dataValues.shopCategory
+       
+
         if(!shop){
             return res.status(404).send('You dont have a shop!')
         }
-        return res.status(200).json({ shop })
+        return res.status(200).send(`
+        Mi tienda es la mejor
+
+        ${shopName} 
+
+        ${shopCategory} 
+
+        ${productsNamesArr}
+        `)
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
