@@ -12,29 +12,6 @@ VALUES
 (9, 'Cafetería', 'Café de calidad, té y productos horneados'),
 (10, 'Librería', 'Libros, revistas y materiales de lectura');
 
--- Inserción de productos en la tabla "products" relacionados con categorías a través de "categoryId"
-INSERT INTO products (id, productName, productDescription, price, categoryId)
-VALUES
-(1, 'Arroz Integral', 'Arroz integral de alta calidad para comidas saludables', 2.99, 5),
-(2, 'Aceite de Oliva Extra Virgen', 'Aceite de oliva extra virgen para cocinar y aderezar', 7.99, 9),
-(3, 'Tomates Frescos', 'Tomates frescos y jugosos para ensaladas y salsas', 1.99, 5),
-(4, 'Queso Parmesano', 'Queso parmesano auténtico para dar sabor a tus platos', 5.99, 8),
-(5, 'Filete de Salmón Fresco', 'Filete de salmón fresco y saludable para asar o cocinar', 8.99, 3),
-(6, 'Leche Orgánica', 'Leche orgánica fresca de granjas locales', 3.99, 5),
-(7, 'Miel de Abeja Pura', 'Miel de abeja 100% pura y natural', 4.99, 9),
-(8, 'Pan Integral', 'Pan integral recién horneado para bocadillos saludables', 2.49, 4),
-(9, 'Huevos Orgánicos', 'Huevos orgánicos de gallinas felices', 3.49, 5),
-(10, 'Mermelada de Fresa', 'Mermelada casera de fresa para tus tostadas', 3.29, 9),
-(11, 'Café Gourmet', 'Café gourmet de origen único para amantes del café', 9.99, 9),
-(12, 'Cereales Multigrano', 'Cereales multigrano ricos en fibra y nutrientes', 4.79, 5),
-(13, 'Pechuga de Pollo', 'Pechuga de pollo magra para platos saludables', 6.99, 1),
-(14, 'Manzanas Gala', 'Manzanas Gala frescas y crujientes', 1.79, 5),
-(15, 'Pasta de Trigo Integral', 'Pasta de trigo integral para platos deliciosos', 2.69, 10),
-(16, 'Yogur Griego Natural', 'Yogur griego natural rico en proteínas', 1.99, 5),
-(17, 'Aguacates Hass', 'Aguacates Hass maduros y deliciosos', 2.29, 5),
-(18, 'Café Descafeinado', 'Café descafeinado suave y aromático', 7.49, 9),
-(19, 'Almendras Crudas', 'Almendras crudas para un bocadillo saludable', 5.49, 5),
-(20, 'Sopa de Tomate Casera', 'Sopa de tomate casera para calentarte en días fríos', 3.99, 5);
 
 
 -- Inserción de datos de contacto en la tabla "contactInfo"
@@ -55,13 +32,13 @@ INSERT INTO users (id, username, email, password, role, contactInfoId)
 VALUES
 (1, 'ADMIN', 'admin@email.com', '$2b$10$G6jdGOqCFHK4ebmo/1gmDuskQfTN6Kxfw3eOAUdnLaEPH/uDF.2.a', 'admin', 1),
 (2, 'lucia19', 'luciamartinez@email.com', '$2b$10$.C33LMXrjN0w/qVxSXV6cOIr.EXMncedV0nBhoyIB0LdhvmO/FAhq', 'owner', 2),
-(3, 'carlos78', 'carlosfernandez@email.com', '$2b$10$/3DbH7sIa3.XdjkDqGF/b.ORmWuuevvFuhd.BpW6nnImXJ7dUNYzW', 'customer', 3),
+(3, 'carlos78', 'carlosfernandez@email.com', '$2b$10$/3DbH7sIa3.XdjkDqGF/b.ORmWuuevvFuhd.BpW6nnImXJ7dUNYzW', 'owner', 3),
 (4, 'mariaperez', 'mariaperez@email.com', '$2b$10$NgqiEUfgVoYUzGzfOHJ25upuRAMtManDwzSdZ9wGl/F.F7s.Es6S.', 'owner', 4),
-(5, 'davidm_45', 'davidmartinez@email.com', '$2b$10$gTs96FGucOFQyb0ctQ1dmOTZ4c.tNH0eBAUtvdUYc70eQ95Rtp7t2', 'customer', 5),
+(5, 'davidm_45', 'davidmartinez@email.com', '$2b$10$gTs96FGucOFQyb0ctQ1dmOTZ4c.tNH0eBAUtvdUYc70eQ95Rtp7t2', 'owner', 5),
 (6, 'anag_22', 'anagomez@email.com', '$2b$10$5niGMHvmeE.niv/7PTVpNeVol5onb4dEz15P8wk7WgmoYDndwLjcG', 'owner', 6),
-(7, 'maria_89', 'mariagarcia@email.com', '$2b$10$q2h8NOOHBYHNpBgksrFqY.7rUD//CkTWrjbMxs9/O7Zv/afyOTJCS', 'customer', 7),
+(7, 'maria_89', 'mariagarcia@email.com', '$2b$10$q2h8NOOHBYHNpBgksrFqY.7rUD//CkTWrjbMxs9/O7Zv/afyOTJCS', 'owner', 7),
 (8, 'pedro21', 'pedromartin@email.com', '$2b$10$aBVNQt.yjcMnqWe9uqkuCOCE./ov0qDwIAYSw9Vzk1vq9dIKpcfXW', 'owner', 8),
-(9, 'andres_s', 'andresrodriguez@email.com', '$2b$10$UGVWwivvZVWB/AnFwxlqeuflxe6XZ8Ek3XeVjuiPTb01RFqEv1AZO', 'customer', 9),
+(9, 'andres_s', 'andresrodriguez@email.com', '$2b$10$UGVWwivvZVWB/AnFwxlqeuflxe6XZ8Ek3XeVjuiPTb01RFqEv1AZO', 'owner', 9),
 (10, 'carmen12', 'carmenfernandez@email.com', '$2b$10$pLIOn8kVTc1dTfBfH3tCW.ndeDxIB7t7I0AHva4dp7kVjWlabiPUW', 'owner', 10);
 
 INSERT INTO contactInfos (id, name, surname, phone, address, zipCode)
@@ -71,6 +48,7 @@ VALUES
 (13, 'Daniel', 'Harris', '610987654', 'Calle Abedul, 1313', '98765'),
 (14, 'Ava', 'Clark', '632109876', 'Calle Elm, 1414', '32109'),
 (15, 'José', 'Lewis', '676543210', 'Calle Cedro, 1515', '65432');
+
 
 -- Inserción de datos en la tabla "suppliers"
 INSERT INTO suppliers (id, supplierName, contactInfoId)
@@ -82,6 +60,31 @@ VALUES
 (5, 'Café Gourmet y Granos de Origen Único', 15);
 
 
+-- Inserción de productos en la tabla "products" relacionados con categorías a través de "categoryId"
+INSERT INTO products (id, productName, productDescription, price, qtyAvailable, categoryId, supplierId)
+VALUES
+(1, 'Arroz Integral', 'Arroz integral de alta calidad para comidas saludables', 2.99, 10, 5, 5),
+(2, 'Aceite de Oliva Extra Virgen', 'Aceite de oliva extra virgen para cocinar y aderezar', 7.99, 10,  9, 2),
+(3, 'Tomates Frescos', 'Tomates frescos y jugosos para ensaladas y salsas', 1.99, 10, 5, 1),
+(4, 'Queso Parmesano', 'Queso parmesano auténtico para dar sabor a tus platos', 5.99, 10, 8, 1),
+(5, 'Filete de Salmón Fresco', 'Filete de salmón fresco y saludable para asar o cocinar', 8.99, 10, 3, 3),
+(6, 'Leche Orgánica', 'Leche orgánica fresca de granjas locales', 3.99, 10, 5, 1),
+(7, 'Miel de Abeja Pura', 'Miel de abeja 100% pura y natural', 4.99, 10, 9, 1),
+(8, 'Pan Integral', 'Pan integral recién horneado para bocadillos saludables', 2.49, 10, 4, 4),
+(9, 'Huevos Orgánicos', 'Huevos orgánicos de gallinas felices', 3.49, 10, 5, 1),
+(10, 'Mermelada de Fresa', 'Mermelada casera de fresa para tus tostadas', 3.29, 10, 9, 1),
+(11, 'Café Gourmet', 'Café gourmet de origen único para amantes del café', 9.99, 10, 9, 5),
+(12, 'Cereales Multigrano', 'Cereales multigrano ricos en fibra y nutrientes', 4.79, 10, 5, 5),
+(13, 'Pechuga de Pollo', 'Pechuga de pollo magra para platos saludables', 6.99, 10, 1, 1),
+(14, 'Manzanas Gala', 'Manzanas Gala frescas y crujientes', 1.79, 10, 5,1),
+(15, 'Pasta de Trigo Integral', 'Pasta de trigo integral para platos deliciosos', 2.69, 10, 10, 5),
+(16, 'Yogur Griego Natural', 'Yogur griego natural rico en proteínas', 1.99, 10, 5, 1),
+(17, 'Aguacates Hass', 'Aguacates Hass maduros y deliciosos', 2.29, 10, 5, 1),
+(18, 'Café Descafeinado', 'Café descafeinado suave y aromático', 7.49, 10, 9, 5),
+(19, 'Almendras Crudas', 'Almendras crudas para un bocadillo saludable', 5.49, 10, 5, 1),
+(20, 'Sopa de Tomate Casera', 'Sopa de tomate casera para calentarte en días fríos', 3.99, 10, 5, 1);
+
+
 -- Inserción de datos en la tabla "shops"
 INSERT INTO shops (id, shopName, shopCategory, userId)
 VALUES
@@ -90,3 +93,13 @@ VALUES
 (3, 'Carnicería Don Juan', 'Carnes y Embutidos', 6),
 (4, 'Pescados y Mariscos Delicias', 'Pescados y Mariscos Frescos', 8),
 (5, 'Panadería Sabor Casero', 'Panadería y Repostería', 10);
+
+
+-- Inserción de datos en la tabla "customers":
+INSERT INTO customers (name, surname, phone, address, zipCode)
+VALUES
+('Juan', 'Pérez', '612345678', 'Calle Principal, 101', '12345'),
+('Ana', 'Doe', '623456789', 'Avenida Elm, 202', '23456'),
+('Miguel', 'Johnson', '634567890', 'Calle Roble, 303', '34567'),
+('Emilia', 'Davis', '645678901', 'Calle Pino, 404', '45678'),
+('Guillermo', 'Anderson', '656789012', 'Calle Cedro, 505', '56789');

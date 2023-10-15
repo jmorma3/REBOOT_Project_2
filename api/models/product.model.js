@@ -15,7 +15,11 @@ const Product = connection.define(
         price: {
             type: DataTypes.FLOAT,
             allowNull: false
-        }
+        },
+        qtyAvailable:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+          }
     },
     {
         timestamps: false

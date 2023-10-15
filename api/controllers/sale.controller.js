@@ -35,9 +35,7 @@ const createSale = async (req, res) => {
             saleTotal: req.body.saleTotal,
             productId: req.body.productId
         })
-        const user = res.locals.user
-        user.addSale(sale)
-
+       
         return res.status(200).json({ message: 'Sale created', sale: sale })
     } catch (error) {
         return res.status(500).json({ error: error.message })

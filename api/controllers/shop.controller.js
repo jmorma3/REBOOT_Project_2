@@ -1,5 +1,7 @@
 const Shop = require("../models/shop.model")
 const User = require("../models/user.model")
+const shopProduct = require("../models/shopProduct.model")
+const Product = require("../models/product.model")
 
 const getAllShops = async (req, res) => {
     try {
@@ -29,6 +31,63 @@ const getOneShop = async (req, res) => {
     }
 }
 
+const getOwnShopInfo = async (req, res) => {
+    try {
+       
+        const shop = await Shop.findOne({
+            where: {
+                userId: res.locals.user.id
+            },
+            include: {
+                model: Product,
+                attributes: []
+             }
+            })
+        
+        //Manejo del array:
+        const productsArr = await shop.getProducts()
+        let productName
+        let productDescription
+        let productPrice
+        let productQuantity
+
+        let productsNamesArr = []
+
+        productsArr.forEach((product)=>{
+            productName = product.dataValues.productName
+            productDescription = product.dataValues.productDescription
+            productPrice = product.dataValues.price
+            productQuantity = product.dataValues.shopProduct.dataValues.quantityAvailable
+            
+            productsNamesArr.push(`
+                Product name: ${ productName }
+                Description: ${ productDescription }
+                Price: ${ productPrice } 
+                Quantity: ${ productQuantity }
+            `)
+        })
+
+        const shopName = shop.dataValues.shopName
+        const shopCategory = shop.dataValues.shopCategory
+       
+
+        if(!shop){
+            return res.status(404).send('You dont have a shop!')
+        }
+        return res.status(200).send(`
+        Mi tienda es la mejor
+
+        ${shopName} 
+
+        ${shopCategory} 
+
+        ${productsNamesArr}
+        `)
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 const createShop = async (req, res) => {
     try {
         const shop = await Shop.create({
@@ -50,12 +109,8 @@ const createShopToUser = async (req, res) => {
             shopName: req.body.shopName,
             shopCategory: req.body.shopCategory
         })
-
-        if(user.role === 'owner'){
-            await user.addShop(shop)
-        } else {
-            return res.status(404).send('User not owner')
-        }
+        
+        await user.setShop(shop)
 
         return res.status(200).json({ message: 'Shop created', shop: shop })
     } catch (error) {
@@ -101,6 +156,7 @@ const deleteShop = async (req, res) => {
 module.exports = {
     getAllShops,
     getOneShop,
+    getOwnShopInfo,
     createShop,
     createShopToUser,
     updateShop,

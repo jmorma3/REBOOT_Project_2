@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken")
 const User = require("../api/models/user.model")
+const Shop = require("../api/models/shop.model")
+const Purchase = require('../api/models/purchase.model')
 require("dotenv").config()
 
 const checkAuth = (req, res, next)=>{
@@ -39,8 +41,33 @@ const checkOwner = (req,res, next)=>{
     }
 }
 
+/* const accessPurchase = async (req, res, next) =>{
+    const purchaseNum = req.body.purchase_num;
+    const user = res.locals.user;
+    const userShop = await user.getShop()
+    const purchaseShopId = await userShop.getPurchases()
+    const purchase = await Purchase.findOne({
+        where: {
+            purchase_num: purchaseNum,
+            shopId: userShop.id,
+        },
+    });
+
+    console.log(purchaseNum)
+    console.log(user.id)
+    console.log(userShop)
+    console.log(purchaseShopId)
+
+    if (!purchase) {
+        return res.status(403).send('No autorizado');
+    } else {
+        next();
+    }
+}; */
+
 module.exports = {
     checkAuth,
     checkAdmin, 
-    checkOwner
+    checkOwner,
+    //accessPurchase
 }
