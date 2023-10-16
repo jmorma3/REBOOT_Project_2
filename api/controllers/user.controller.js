@@ -45,24 +45,41 @@ const getOwnProfile = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
+        const { email, password, username, role } = req.body
+
+        if (password.length < 8){
+            return res.status(400).json({ message: 'Password too short' })
+        }
+
+        const saltRounds = parseInt(process.env.SALTROUNDS)
+        const salt = bcrypt.genSaltSync(saltRounds)
+        const hashedPassword = bcrypt.hashSync(password, salt)
+
         const user = await User.create({
-            email: req.body.email,
-            password: req.body.password,
-            username: req.body.username,
-            role: req.body.role,
+            email: email,
+            password: hashedPassword,
+            username: username,
+            role: role,
         })
 
-        const contact = await Contact.create({
-            name: req.body.name,
-            surname: req.body.surname,
-            address: req.body.address,
-            phone: req.body.phone,
-            zipCode: req.body.zipCode
-        })
+        const contactProps = ['name', 'surname', 'address', 'phone', 'zipCode'];
 
-        await user.setContactInfo(contact)
+        if (contactProps.some(prop => req.body[prop])) {
 
-        return res.status(200).json({ message: 'User created', user: user, contact: contact })
+            const { name, surname, address, phone, zipCode } = req.body
+
+            const contact = await Contact.create({
+                name: name,
+                surname: surname,
+                address: address,
+                phone: phone,
+                zipCode: zipCode
+            })
+            await user.setContactInfo(contact)
+            return res.status(200).json({ message: 'User created with contactInfo', user: user, contact: contact })
+        } 
+
+        return res.status(200).json({ message: 'User created', user: user })
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
