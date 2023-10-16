@@ -4,16 +4,17 @@ const { getAllShops, getOneShop, getOwnShopInfo, createShop, updateShop, deleteS
 
 const { checkAdmin } = require("../../middlewares")
 
-router.get('/', checkAdmin, getAllShops)
-router.get('/profile', getOwnShopInfo)
-router.get('/purchaseHistory', getOwnPurchaseHistory)
-router.get('/:shopId', getOneShop)
-router.post('/', createShop)
-router.post('/:userId', checkAdmin, createShopToUser)
-router.put('/profile', updateOwnShop)
-router.put('/:shopId', updateShop)
-router.delete('/profile', deleteOwnShop)
-router.delete('/:shopId', deleteShop)
+router
+    .get('/', checkAdmin, getAllShops)
+    .get('/profile', getOwnShopInfo)
+    .get('/purchaseHistory', getOwnPurchaseHistory)
+    .get('/:shopId', getOneShop)
+    .post('/', createShop)
+    .post('/:userId', checkAdmin, createShopToUser)
+    .put('/profile', updateOwnShop)
+    .put('/:shopId', updateShop)
+    .delete('/profile', deleteOwnShop)
+    .delete('/:shopId', deleteShop)
 
 
 
