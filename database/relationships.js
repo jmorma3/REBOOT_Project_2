@@ -48,8 +48,8 @@ const addRelationshipsToModels = () => {
         Sale.belongsTo(Customer)
 
         //Many to Many:
-        Shop.belongsToMany(Product, {through: shopProduct, as: "shopProducts"})
-        Product.belongsToMany(Shop, {through: shopProduct, as: "shopProducts"})
+        Shop.belongsToMany(Product, {through: shopProduct})
+        Product.belongsToMany(Shop, {through: shopProduct})
 
         
         

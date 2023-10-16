@@ -88,10 +88,50 @@ const deleteSale = async (req, res) => {
     }
 }
 
+const getOwnerAllSales = async (req, res) => {
+    try {
+        const shop = await Shop.findOne({
+            where: {
+                userId: res.locals.user.id,
+            },
+        })
+        const sales = await Sale.findAll({
+            where: {
+                shopId: shop.id
+            },
+        })
+         return res.status(200).json({ sales })
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
+const getOwnerOneSale = async (req, res) => {
+    try {
+        const shop = await Shop.findOne({
+            where: {
+                userId: res.locals.user.id,
+            },
+        })
+        const sale = await Sale.findOne({
+            where: {
+                sale_num: req.params.saleNum,
+                shopId: shop.id
+            },
+        })
+
+        return res.status(200).json({ sale })
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 module.exports = {
     getAllSales,
     getOneSale,
     createSale,
     updateSale,
-    deleteSale
+    deleteSale,
+    getOwnerAllSales,
+    getOwnerOneSale
 }

@@ -5,13 +5,17 @@ const {
     getOneSale, 
     createSale, 
     updateSale, 
-    deleteSale 
+    deleteSale,
+    getOwnerAllSales,
+    getOwnerOneSale
 } = require('../controllers/sale.controller')
 
 const { checkAdmin } = require("../../middlewares")
 
 router
     .get('/', checkAdmin, getAllSales)
+    .get('/profile', getOwnerAllSales)
+    .get('/profile/:saleNum', getOwnerOneSale)
     .get('/:saleNum', getOneSale)
     .post('/', createSale)
     .put('/:saleNum', checkAdmin,  updateSale)
