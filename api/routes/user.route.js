@@ -5,20 +5,24 @@ const {
     getOneUser, 
     createUser, 
     updateUser, 
-    deleteUser 
+    deleteUser, 
+    getOwnProfile,
+    updateOwnProfile,
+    deleteOwnProfile,
+    updateOwnPassword
 } = require('../controllers/user.controller')
 
 const { checkAdmin } = require("../../middlewares")
 
 router
     .get('/', checkAdmin, getAllUsers)
+    .get('/profile', getOwnProfile)
     .get('/:userId', checkAdmin, getOneUser)
-    //Crear ruta para getProfile
     .post('/', checkAdmin, createUser)
+    .put('/profile', updateOwnProfile)
+    .put('/password', updateOwnPassword)
     .put('/:userId', checkAdmin, updateUser)
-    //Crear ruta para updateProfile
-    //Crear ruta para updatePassword
+    .delete('/profile', deleteOwnProfile)
     .delete('/:userId', checkAdmin, deleteUser)
-    //Crear ruta para deleteProfile
 
 module.exports = router
