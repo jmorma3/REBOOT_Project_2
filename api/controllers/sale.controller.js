@@ -30,47 +30,24 @@ const getOneSale = async (req, res) => {
 const createSale = async (req, res) => {
     try {
       
-      /*const updates = [];
-        for (const saleProduct of req.body.saleProducts) {
-        const product = products.find(products => product.id === saleProduct.productId);
-        if (!product || product.quantityAvailable < saleProduct.quantity) {
-          return res.status(400).send('No hay suficiente cantidad de producto disponible.');
-        }
-        updates.push({
-          id: product.id,
-          qtyAvailable: product.quantityAvailable - saleProduct.quantity,
-        });
-      }
-      */const shop = await Shop.findOne({
+      const shop = await Shop.findOne({
         where: {
             userId: res.locals.user.id
         }
     })
-    console.log(shop)
       const sale = await Sale.create({
         sale_num: req.body.sale_num,
         saleProductQuantity: req.body.saleProductQuantity,
         sale_payment_method: req.body.sale_payment_method,
-        saleProducts: req.body.saleProducts,
         saleTotal: req.body.saleTotal,
-        shopId: shop.dataValues.id
+        shopId: shop.dataValues.id,
+        productId: req.body.productId,
+        customerId:req.body.customerId
       });
-      console.log(sale)
-      const products = await shopProduct.findOne({
-        where: {
-          productId: req.body.saleProduct
-        }
-      });
-      console.log(products)
-      /*
       if (!sale) {
         return res.status(500).send('No se ha podido crear la venta.');
       }
-      await Product.bulkCreate(updates, {
-        updateOnDuplicate: ['qtyAvailable']
-      });
-  
-      return res.status(200).json({ message: 'Venta realizada con éxito', sale: sale });*/
+      return res.status(200).json({ message: 'Venta realizada con éxito', sale: sale });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
