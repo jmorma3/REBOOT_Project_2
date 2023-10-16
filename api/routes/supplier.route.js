@@ -8,11 +8,11 @@ const {
     deleteSupplier 
 } = require('../controllers/supplier.controller')
 
-const { checkAdmin, checkOwner } = require("../../middlewares")
+const { checkAdmin } = require("../../middlewares")
 
 router
-    .get('/', checkOwner, getAllSuppliers)
-    .get('/:supplierId', checkOwner,  getOneSupplier)
+    .get('/', getAllSuppliers)
+    .get('/:supplierId',  getOneSupplier)
     .post('/', checkAdmin, createSupplier)
     .put('/:supplierId', checkAdmin, updateSupplier)
     .delete('/:supplierId', checkAdmin, deleteSupplier)

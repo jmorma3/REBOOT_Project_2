@@ -2,18 +2,18 @@ const router = require('express').Router()
 
 const { getAllShops, getOneShop, getOwnShopInfo, createShop, updateShop, deleteShop, createShopToUser, getOwnPurchaseHistory, updateOwnShop, deleteOwnShop } = require('../controllers/shop.controller')
 
-const { checkAdmin, checkOwner } = require("../../middlewares")
+const { checkAdmin } = require("../../middlewares")
 
 router.get('/', checkAdmin, getAllShops)
 router.get('/profile', getOwnShopInfo)
 router.get('/purchaseHistory', getOwnPurchaseHistory)
-router.get('/:shopId', checkOwner, getOneShop)
-router.post('/', checkOwner, createShop)
+router.get('/:shopId', getOneShop)
+router.post('/', createShop)
 router.post('/:userId', checkAdmin, createShopToUser)
 router.put('/profile', updateOwnShop)
-router.put('/:shopId', checkOwner, updateShop)
+router.put('/:shopId', updateShop)
 router.delete('/profile', deleteOwnShop)
-router.delete('/:shopId', checkOwner, deleteShop)
+router.delete('/:shopId', deleteShop)
 
 
 

@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 const { getAllPurchases, getOnePurchase, createPurchase, updatePurchase, deletePurchase } = require('../controllers/purchase.controller')
 
-const { checkOwner, checkAdmin} = require("../../middlewares")
+const { checkAdmin } = require("../../middlewares")
 
 router.get('/', checkAdmin, getAllPurchases)
 router.get('/:purchaseNum', checkAdmin, getOnePurchase)
