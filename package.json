@@ -8,8 +8,17 @@
     "morgan": "^1.10.0",
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0"
-  }, 
-  "scripts":{
-      "start": "node index.js"
-  }
+  },
+  "name": "reboot_project_2",
+  "description": "This REST API is designed to manage a local market through a website, where customers, shop owners and main web admin can acces to different funtionalities related with products, suppliers,  purchases, sales, etc.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {"node":">=16.14"},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
