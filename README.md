@@ -45,7 +45,6 @@ DELETE   | /user/profile    | YES    | - | Delete user profile (owner and custom
 DELETE   | /user/:userId    | YES    | admin | Delete one user           | - | {message: "User deleted!"}
 
 
-
 ### Product Endpoints
 
 METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
@@ -66,6 +65,28 @@ GET   | /category/:categoryId    | YES    | - | Get one category           | - |
 POST   | /category    | YES    | owner, admin | Create one category           | name, description | {category}
 PUT   | /category/:categoryId  | YES    | owner, admin | Update one category           | name, description | {message: "Category updated!"}
 DELETE   | /category/:categoryId    | YES    | owner, admin | Delete one category           | - | {message: "Category deleted!"}
+
+
+### Customer Endpoints
+
+METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
+GET   | /customer    | YES    | admin | Get all customers           | Query params | [{customer}]
+GET   | /customer/:customerId    | YES    | admin | Get one customer           | - | {customer}
+POST   | /customer    | YES    | admin | Create one customer           | name, surname, phone, address, zipCode  | {customer}
+PUT   | /customer/:customerId  | YES    | admin | Update one customer           | name, surname, phone, address, zipCode | {message: "Customer updated!"}
+DELETE   | /customer/:customerId    | YES    | admin | Delete one customer           | - | {message: "Customer deleted!"}
+
+
+### ContactInfo Endpoints
+
+METHOD | ENDPOINT         | TOKEN | ROLE | DESCRIPTION              | POST PARAMS                                     | RETURNS
+-------|------------------|-------|------|--------------------|-------------------------------------------------|--------------------
+GET   | /contactInfo    | YES    | - | Get all contact infos           | Query params | [{contactInfo}]
+GET   | /contactInfo/:contactInfo    | YES    | - | Get one contact info           | - | {contactInfo}
+POST   | /contactInfo    | YES    | owner, admin | Create one contact info           | name, surname, phone, address, zipCode  | {contactInfo}
+PUT   | /contactInfo/:contactInfo  | YES    | owner, admin | Update one contact info           | name, surname, phone, address, zipCode | {message: "Contact info updated!"}
+DELETE   | /contactInfo/:contactInfo    | YES    | owner, admin | Delete one contact info           | - | {message: "Contact info deleted!"}
 
 
 ### Supplier Endpoints
