@@ -4,16 +4,17 @@ This REST API is designed to manage a local market through a website, where cust
 ## Roles:
 - Webmaster ("Admin"). This is a full access role. Admin can create, update and delete different shops, products and suppliers in the marketplace, access to contact information from every user and create, update and delete users.
 - Shop Owner ("Owner"). This one is a mid level access role. Owner has access to his own shop, adding, updating and deleting new products and suppliers to its own shop. Also can access to sales to customers and purchases from suppliers.
-- Customer ("Customer"). Customer is the most limited role, having access to products, its own contact information (being able to update and delete its own profile) and its buying history into the marketplace. 
 
 ## Permissions:
-![image](https://github.com/jmorma3/REBOOT_Project_2/assets/122169852/6c683897-e0e3-4b00-a328-e826428d92fe)
+![image](https://github.com/jmorma3/REBOOT_Project_2/assets/122169852/86601cdc-3af3-453a-b96d-0425b3c564e8)
+
 
 
 
 ## Tables Diagram:
 
-![image](https://github.com/jmorma3/REBOOT_Project_2/assets/122169852/9a875526-8fd0-4e61-ac8b-eba47c975c7b)
+![Esquema DB API](https://github.com/jmorma3/REBOOT_Project_2/assets/122169852/48a47e76-612f-4eac-a7a4-d61cfaaeea5d)
+
 
 
 ## Authentication Endpoints
