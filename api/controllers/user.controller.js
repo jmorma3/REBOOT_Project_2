@@ -121,7 +121,21 @@ const updateOwnPassword = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        const [user] = await User.update(req.body, {
+
+        if (req.body.password.length < 8) {
+            return res.status(400).json({ message: 'Password too short' });
+        }
+
+        const saltRounds = parseInt(process.env.SALTROUNDS)
+        const salt = bcrypt.genSaltSync(saltRounds)
+        const hashedPassword = bcrypt.hashSync(req.body.password, salt);
+
+        const [user] = await User.update({
+            email: req.body.email,
+            password: hashedPassword,
+            username: req.body.username,
+            role: req.body.role
+        }, {
             where: {
                 id: req.params.userId
             }

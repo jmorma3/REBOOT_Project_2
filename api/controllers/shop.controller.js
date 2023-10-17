@@ -71,44 +71,46 @@ const getOwnShopInfo = async (req, res) => {
                 attributes: []
             }
         })
-        const productsArr = await shop.getProducts()
-        let productName
-        let productDescription
-        let productPrice
-        let productQuantity
 
-        let productsNamesArr = []
+        if(shop){
+            const productsArr = await shop.getProducts()
+            let productName
+            let productDescription
+            let productPrice
+            let productQuantity
+    
+            let productsNamesArr = []
 
-        productsArr.forEach((product) => {
-            productName = product.dataValues.productName
-            productDescription = product.dataValues.productDescription
-            productPrice = product.dataValues.price
-            productQuantity = product.dataValues.shopProduct.dataValues.quantityAvailable
+            productsArr.forEach((product) => {
+                productName = product.dataValues.productName
+                productDescription = product.dataValues.productDescription
+                productPrice = product.dataValues.price
+                productQuantity = product.dataValues.shopProduct.dataValues.quantityAvailable
 
-            productsNamesArr.push(`
-                Product name: ${productName}
-                Description: ${productDescription}
-                Price: ${productPrice} 
-                Quantity: ${productQuantity}
+                productsNamesArr.push(`
+                    Product name: ${productName}
+                    Description: ${productDescription}
+                    Price: ${productPrice} 
+                    Quantity: ${productQuantity}
+                `)
+            })
+            
+            const shopName = shop.dataValues.shopName
+            const shopCategory = shop.dataValues.shopCategory
+            
+            return res.status(200).send(`
+            Mi tienda es la mejor
+    
+            ${shopName} 
+    
+            ${shopCategory} 
+    
+            ${productsNamesArr}
             `)
-        })
-
-        const shopName = shop.dataValues.shopName
-        const shopCategory = shop.dataValues.shopCategory
-
-
-        if (!shop) {
+        } else {
             return res.status(404).send('You dont have a shop!')
         }
-        return res.status(200).send(`
-        Mi tienda es la mejor
 
-        ${shopName} 
-
-        ${shopCategory} 
-
-        ${productsNamesArr}
-        `)
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
@@ -144,6 +146,27 @@ const createShopToUser = async (req, res) => {
     }
 }
 
+const addShopToUser = async (req, res) => {
+    try {
+        const shop = await Shop.findOne({
+            where: {
+                shopName: req.body.shopName
+            }
+        })
+        const user = await User.findByPk(req.params.userId)
+
+        if (!shop || !user) {
+            return res.status(404).send('Shop or user not found')
+        }
+
+        await user.setShop(shop)
+
+        return res.status(200).json({ message: 'User added to shop' })
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
 const updateShop = async (req, res) => {
     try {
         const shop = await Shop.update(req.body, {
@@ -161,7 +184,6 @@ const updateShop = async (req, res) => {
         return res.status(500).json({ error: error.message })
     }
 }
-
 
 
 const updateOwnShop = async (req, res) => {
@@ -187,12 +209,6 @@ const updateOwnShop = async (req, res) => {
         return res.status(500).json({ error: error.message })
     }
 }
-
-
-
-
-
-
 
 const deleteShop = async (req, res) => {
     try {
@@ -235,6 +251,7 @@ module.exports = {
     getOwnShopInfo,
     createShop,
     createShopToUser,
+    addShopToUser,
     updateShop,
     deleteShop,
     updateOwnShop,
