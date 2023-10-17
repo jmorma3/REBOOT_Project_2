@@ -16,7 +16,7 @@ router
     .get('/', checkAdmin, getAllSales)
     .get('/profile', getOwnerAllSales)
     .get('/profile/:saleNum', getOwnerOneSale)
-    .get('/:saleNum', getOneSale)
+    .get('/:saleNum', checkAdmin, getOneSale)
     .post('/', createSale)
     .put('/:saleNum', checkAdmin,  updateSale)
     .delete('/:saleNum', checkAdmin, deleteSale)

@@ -33,13 +33,6 @@ const checkAdmin = (req,res, next)=>{
     }
 }
 
-const checkOwner = (req,res, next)=>{ 
-    if(res.locals.user.role !== "owner" && res.locals.user.role !== "admin"){
-        return res.status(401).json("Access not allowed")
-    }else{
-        next()
-    }
-}
 
 /* const accessPurchase = async (req, res, next) =>{
     const purchaseNum = req.body.purchase_num;
@@ -67,7 +60,6 @@ const checkOwner = (req,res, next)=>{
 
 module.exports = {
     checkAuth,
-    checkAdmin, 
-    checkOwner,
+    checkAdmin
     //accessPurchase
 }

@@ -1,4 +1,5 @@
 const ContactInfo = require("../models/contactInfo.model")
+const User = require("../models/user.model")
 
 const getAllContactInfos = async (req, res) => {
     try {
@@ -30,14 +31,23 @@ const getOneContactInfo = async (req, res) => {
 
 const createContactInfo = async (req, res) => {
     try {
-        const contactInfo = await ContactInfo.create({
-            name: req.body.name,
-            surname: req.body.surname,
-            phone: req.body.phone,
-            address: req.body.address,
-            zipCode: req.body.zipCode
+        const { name, surname, phone, address, zipCode, userId } = req.body
+        const contact = await ContactInfo.create({
+            name: name,
+            surname: surname,
+            phone: phone,
+            address: address,
+            zipCode: zipCode,
+            userId: userId
         })
-        return res.status(200).json({ message: 'Contact info created', contactInfo: contactInfo })
+
+        if (userId) {
+            const user = await User.findByPk(userId)
+
+            if (user) user.setContactInfo(contact)
+        }
+        
+        return res.status(200).json({ message: 'Contact info created', contactInfo: contact })
     } catch (error) {
         return res.status(500).json({ error: error.message })
     }
@@ -52,7 +62,7 @@ const updateContactInfo = async (req, res) => {
             },
         })
         if (contactInfo !== 0) {
-            return res.status(200).json({ message: 'Contact info updated', contactInfo: contactInfo })
+            return res.status(200).json({ message: 'Contact info updated' })
         } else {
             return res.status(404).send('Contact info not found')
         }

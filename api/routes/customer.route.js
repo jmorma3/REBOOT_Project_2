@@ -3,10 +3,11 @@ const {getOneCustomer, getAllCustomers, createCustomer, updateCustomer, deleteCu
 
 //Rutas para clientes
 
-router.get('/', getAllCustomers);
-router.get('/:customerId', getOneCustomer);
-router.post('/', createCustomer);
-router.put('/:customerId', updateCustomer);
-router.delete('/:customerId', deleteCustomer);
+router
+    .get('/', getAllCustomers)
+    .get('/:customerId', getOneCustomer)
+    .post('/', createCustomer)
+    .put('/:customerId', updateCustomer)
+    .delete('/:customerId', deleteCustomer)
 
 module.exports = router;

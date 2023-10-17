@@ -50,7 +50,7 @@ const updateCustomer = async (req, res) => {
             },
         })
         if (customer !== 0) {
-            return res.status(200).json({ message: 'Customer updated', customer: customer })
+            return res.status(200).json({ message: 'Customer updated'})
         } else {
             return res.status(404).send('Customer not found')
         }

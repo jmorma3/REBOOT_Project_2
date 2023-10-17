@@ -2,14 +2,30 @@ const Product = require("../models/product.model")
 const Purchase = require("../models/purchase.model")
 const Shop = require("../models/shop.model")
 const Supplier = require("../models/supplier.model")
-const User = require("../models/user.model")
 const shopProduct = require("../models/shopProduct.model")
 
 const getAllPurchases = async (req, res) => {
     try {
-        const purchases = await Purchase.findAll(req.query)
+        const purchases = await Purchase.findAll({
+            include: {
+                model: Product
+            }
+        })
         if (purchases) {
-            return res.status(200).json(purchases)
+            const customResponse = purchases.map(purchase => (`
+                Purchase Receipt
+                -----------------
+                Purchase Number: ${ purchase.purchase_num }
+                Payment Method: ${ purchase.purchase_payment_method }
+                Product Name: ${ purchase.product.productName }
+                Product Price: ${ purchase.product.price } €
+                Product Quantity: ${ purchase.purchaseProductQuantity }
+
+                Total: ${ purchase.purchaseTotal } €
+                -----------------
+            `
+            )).join('\n')
+            return res.status(200).send(customResponse)
         } else {
             return res.status(404).send("No purchases found!")
         }
@@ -39,12 +55,12 @@ const getOnePurchase = async (req, res) => {
                 purchaseNUM = purchase.dataValues.purchase_num
                 //Nombre, precio y cantidad de productos comprados:
                 productsNamesArr.push(
-                    `
-                     - Producto: ${purchase.dataValues.product.productName} 
-                     - Precio: ${purchase.dataValues.product.price} €
-                     - Cantidad comprada: ${purchase.dataValues.purchaseProductQuantity}
-                     `
-                     )
+                `
+                - Product: ${purchase.dataValues.product.productName}
+                - Price: ${purchase.dataValues.product.price} €
+                - Quantity Purchased: ${purchase.dataValues.purchaseProductQuantity}
+                `
+                )
             })
 
             //Suma total de artículos:
@@ -57,12 +73,17 @@ const getOnePurchase = async (req, res) => {
                 return sum + index.dataValues.purchaseTotal
             }, 0)
 
-            return res.status(200).send(`
-                Número de factura: ${purchaseNUM}
-                Productos comprados: ${productsNamesArr}
-                Número total de productos: ${purchasedProductsNum}
-                TOTAL: ${purchaseTotalPayment} €
-            `)
+            const customOutput = `
+            Purchase Receipt
+            -----------------
+            Invoice Number: ${purchaseNUM}
+            Purchased Products: ${productsNamesArr}
+            Total Number of Products: ${purchasedProductsNum}
+            Total: ${purchaseTotalPayment} €
+            -----------------
+            `
+
+            return res.status(200).send(customOutput)
 
         } else {
             return res.status(404).send("Nº de factura no encontrado!")
@@ -75,10 +96,27 @@ const getOnePurchase = async (req, res) => {
 
 const createPurchase = async (req, res) => {
     try { 
+        const userId = res.locals.user.id
+
+        const shop = await Shop.findOne({
+            where: {
+                userId: userId
+            }
+        })
+        /* 
+        const existingPurchaseNum = await Purchase.findOne({
+            where:{
+                purchase_num: "FACTURA-2023-10-" + req.body.purchase_num,
+                shopId: shop.id
+            }
+        })
+        
+        console.log(existingPurchaseNum.purchase_num) 
+        */
 
         const product = await Product.findOne({
             where: {
-                id: req.body.productId,
+                id: req.body.productId
             }
         })
         //Cantidad de producto requerido (pasado por el body):
@@ -87,7 +125,7 @@ const createPurchase = async (req, res) => {
         if (product.qtyAvailable > 0 && qtyRequired <= product.qtyAvailable) {
 
             const purchase = await Purchase.create({
-                purchase_num: "FACTURA-2023-10-" + req.body.purchase_num,
+                purchase_num: "INVOICE-2023-10-" + req.body.purchase_num,
                 purchase_payment_method: req.body.purchase_payment_method,
                 purchaseProductQuantity: qtyRequired,
                 purchaseTotal: (product.price * req.body.purchaseProductQuantity),
@@ -102,11 +140,6 @@ const createPurchase = async (req, res) => {
 
             })
 
-            const shop = await Shop.findOne({
-                where: {
-                    userId: res.locals.user.id
-                }
-            })
             const supplier = await Supplier.findOne({
                 where: {
                     id: product.supplierId
@@ -144,7 +177,7 @@ const updatePurchase = async (req, res) => {
             },
         })
         if (purchase !== 0) {
-            return res.status(200).json({ message: 'Purchase updated', purchase: purchase })
+            return res.status(200).json({ message: 'Purchase updated' })
         } else {
             return res.status(404).send('Purchase not found')
         }

@@ -35,7 +35,8 @@ const createProduct = async (req, res) => {
             productName: req.body.productName,
             productDescription: req.body.productDescription,
             price: req.body.price,
-            qtyAvailable: req.body.qtyAvailable
+            qtyAvailable: req.body.qtyAvailable,
+            supplierId: req.body.supplierId
         })
         const category = await Category.create({
             categoryName: req.body.categoryName,
@@ -59,7 +60,7 @@ const updateProduct = async (req, res) => {
             },
         })
         if (product !== 0) {
-            return res.status(200).json({ message: 'Product updated', product: product })
+            return res.status(200).json({ message: 'Product updated' })
         } else {
             return res.status(404).send('Product not found')
         }

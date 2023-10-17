@@ -11,16 +11,17 @@ const customerRouter = require('./customer.route')
 const authRouter = require('./auth.route')
 const { checkAuth, checkAdmin } = require("../../middlewares")
 
-router.use('/user', checkAuth,  userRouter)
-router.use('/product', checkAuth, productRouter)
-router.use('/category', checkAuth, categoryRouter)
-router.use('/supplier', checkAuth, supplierRouter)
-router.use('/shop', checkAuth, shopRouter)
-router.use('/contactInfo', checkAuth, checkAdmin, contactInfoRouter)
-router.use('/sale', checkAuth, saleRouter)
-router.use('/purchase', checkAuth, purchaseRouter)
-router.use('/customer', checkAuth, customerRouter)
-router.use('/auth', authRouter)
+router
+    .use('/user', checkAuth,  userRouter)
+    .use('/product', checkAuth, productRouter)
+    .use('/category', checkAuth, categoryRouter)
+    .use('/supplier', checkAuth, supplierRouter)
+    .use('/shop', checkAuth, shopRouter)
+    .use('/contactInfo', checkAuth, checkAdmin, contactInfoRouter)
+    .use('/sale', checkAuth, saleRouter)
+    .use('/purchase', checkAuth, purchaseRouter)
+    .use('/customer', checkAuth, customerRouter)
+    .use('/auth', authRouter)
 
 
 
