@@ -8,5 +8,8 @@
     "morgan": "^1.10.0",
     "mysql2": "^3.6.1",
     "sequelize": "^6.33.0"
+  }, 
+  "scripts":{
+      "start": "node index.js"
   }
 }
